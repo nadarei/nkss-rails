@@ -1,5 +1,7 @@
 # nkss-rails: Nadarei KSS Styleguides for Rails
 
+![Image](https://raw.github.com/nadarei/nkss-rails/misc/sample.jpg)
+
 What is KSS?
 ------------
 
