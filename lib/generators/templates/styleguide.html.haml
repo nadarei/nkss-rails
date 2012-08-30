@@ -10,6 +10,8 @@
     %meta{charset: 'utf-8'}
     %title Styleguides
     = stylesheet_link_tag 'application'
+    /[if lt IE 9]
+      %script{src: 'http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js'}
     = yield :head  if content_for?(:head)
 
 %body
