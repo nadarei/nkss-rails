@@ -26,8 +26,9 @@ All you gotta worry about is documenting your styles!
 Installation
 ------------
 
-Add me to your `Gemfile`.
+Add me, and `haml`, to your `Gemfile`.
 
+    gem 'haml'
     gem 'nkss-rails', github: 'nadarei/nkss-rails'
 
 Then type `bundle` to update your bundle. Then, install the needed files into
