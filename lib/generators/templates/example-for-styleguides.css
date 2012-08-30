@@ -1,0 +1,16 @@
+/* REMOVE ME:
+ * Below is an example of a KSS-documented block.
+ * The markup for this is in app/views/styleguides/.
+ */
+
+/* ---------------------------------------------------------------------------- */
+
+/* ## Example `.example`
+ * This is an example.
+ *
+ * Styleguide 1.1.
+ */
+
+.example {
+  color: red;
+}

@@ -1,0 +1,336 @@
+$pad: 50px
+$checkerboard: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAF0lEQVQI12P4BAI/QICBFCaYBPNJYQIAkUZftTbC4sIAAAAASUVORK5CYII="
+$dark-checkerboard: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAFklEQVQI12NQBQF2EGAghQkmwXxSmADZJQiZ2ZZ46gAAAABJRU5ErkJggg=="
+$mono: 'Menlo', 'Monaco', 'Lucida Console', monospace
+$sans: 'Helvetica Neue', sans-serif
+$bluish: #f0f7fb
+
+html, body
+  margin: 0
+  padding: 0
+
+@mixin code
+  background: #eee
+  padding: 4px 4px
+  border-radius: 2px
+  margin: 0 2px
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2)
+
+.sg-badge
+  position: absolute
+  z-index: 1
+  right: 0
+  top: 0
+  padding: 5px 10px
+  background: #eee
+  color: #888
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7)
+  border-bottom-left-radius: 5px
+  border-left: solid 1px #ddd
+  border-bottom: solid 1px #ddd
+  font-size: 9pt
+  font-family: $sans
+
+body
+  padding: $pad !important
+  background: #fcfcfc
+  border-top: solid 6px #222
+
+html, body
+  overflow: inherit
+
+// Layout
+.sg-body
+  margin-left: 180px + $pad
+  padding-bottom: 20px
+
+body .sg-toc
+  font-family: $sans
+  font-size: 10pt
+  width: 180px
+  position: absolute
+  top: $pad
+  left: $pad
+
+// ----------------------------------------------------------------------------
+
+// Contents
+.sg-toc
+  h1
+    font-size: 18pt
+    color: #888
+    font-weight: 200
+    line-height: 1.2
+
+    margin-bottom: 0px
+    padding-bottom: 30px
+
+    small, strong
+      display: block
+      text-align: right
+
+    small
+      font-size: 1em
+    strong
+      font-weight: bold
+      color: #222
+
+  ul, li
+    list-style-type: none
+    margin: 0
+    padding: 0
+
+  li a
+    border-top: solid 1px #eee
+
+  a
+    display: block
+    padding: 7px 0
+    font-weight: normal
+    color: #777
+
+    height: 24px
+    line-height: 24px
+
+  a:after
+    content: ''
+    display: block
+    clear: both
+
+  a:hover
+    color: #36c
+
+  a.active
+    font-weight: bold
+    color: #222
+
+  .sg-number
+    float: left
+
+  a .sg-number:after
+    content: '\2192'
+    margin-left: 10px
+    color: #ddd
+
+  .sg-name
+    float: right
+    text-align: right
+
+// ----------------------------------------------------------------------------
+
+// Layout
+.sg-body .sg-example
+  margin-bottom: $pad
+
+// ----------------------------------------------------------------------------
+
+// Example
+.sg-example
+  border: solid 1px #bbb
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05)
+  margin-left: 60px
+  position: relative
+
+  .sg-filename
+    @extend .sg-badge
+
+  // Canvas area
+  .sg-canvas
+    overflow: hidden
+    padding: 25px
+    border-top: solid 1px #ccc
+    box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.2)
+
+    position: relative
+    z-index: 0
+
+  // Reset the inside elements of the canvas.
+  .sg-canvas > *
+    margin: 0 auto
+    float: none
+    position: relative
+    bottom: inherit
+    right: inherit
+    left: inherit
+    top: inherit
+
+  .sg-canvas.align-center
+    text-align: center
+
+  .sg-canvas.align-left
+    text-align: left
+
+  .sg-canvas.align-right
+    text-align: right
+
+  // Light
+  .sg-canvas.bg-clear
+    background: transparent
+
+  .sg-canvas.bg-light
+    background: url($checkerboard)
+
+  .sg-canvas.bg-white
+    background: #fff
+    border: solid 10px #ddd
+
+  .sg-canvas.bg-black
+    background: #000
+
+  .sg-canvas.bg-dark
+    background: url($dark-checkerboard)
+
+  // Canvas modifier
+  .sg-modifier > .sg-modifier-name
+    @extend .sg-badge
+    font-weight: bold
+    color: #222
+    padding: 3px 15px
+
+  // Description
+  .sg-description
+    background: #fff
+    line-height: 1.5
+    font-family: $sans
+
+    code
+      @include code
+
+  > h3
+    background: #222
+    color: #fff
+    text-align: center
+    font-weight: bold
+    font-size: 10pt
+    font-family: $sans
+
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05)
+
+    display: block
+    width: 50px
+    height: 50px
+    line-height: 50px
+
+    float: left
+    margin-left: -70px
+    border-radius: 25px
+
+  .sg-description
+    padding: 25px
+    font-size: 10pt
+    color: #444
+
+  .sg-description
+    h1, h2, h3, h4, h5, h6
+      color: #222
+      margin: 0 0 5px 0
+      padding: 0
+      font-weight: bold
+      font-size: 12pt
+
+      code
+        font-size: 0.9em
+        color: #8080b0
+        font-weight: normal
+        margin-left: 7px
+        padding: 0
+
+        background: transparent
+        box-shadow: none
+
+        font-family: $mono
+
+        &:before
+          content: '\203a'
+          margin-right: 10px
+
+  ul.sg-modifiers
+    &
+      margin: 20px 0 0 25px
+      padding: 0
+      list-style-type: none
+
+    li
+      margin: 5px 0
+      padding: 0
+      list-style-type: disc
+
+    li strong
+      @include code
+      padding: 1px 5px
+      font-weight: bold
+
+.sg-html
+  border-top: solid 1px #ccc
+  position: relative
+
+  background: $bluish
+  box-shadow: inset 0 5px 4px -4px rgba(0, 0, 0, 0.1)
+
+  .sg-expand
+    border: 0
+    padding: 0
+    margin: 0
+
+    position: absolute
+    top: 0px
+    left: -51px
+    bottom: 0px
+
+    line-height: 100%
+    width: 50px
+    text-align: center
+
+    background: $bluish * 0.9
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset -6px 0 4px -4px rgba(0, 0, 0, 0.1)
+
+    border-top-left-radius: 4px
+    border-bottom-left-radius: 4px
+
+    color: $bluish * 0.7
+    text-shadow: 0 1px 0 rgba(white, 0.7)
+    font-size: 16pt
+    font-weight: bold
+    font-family: $sans
+    padding: 0
+
+    &:hover
+      background: $bluish * 0.92
+
+  pre
+    padding: 20px !important
+    line-height: 1.5
+    border: 0 !important
+    color: #30305a
+    text-shadow: 0 1px 0 rgba(white, 0.6)
+    font-size: 8pt
+    font-family: $mono
+    max-height: 60px
+
+    overflow-y: scroll
+
+// Hide
+.sg-example .sg-expand
+  opacity: 0
+  transition: opacity 300ms linear
+  -moz-transition: opacity 300ms linear
+  -webkit-transition: opacity 300ms linear
+.sg-example:hover .sg-expand
+  opacity: 1
+  transition: none
+  -moz-transition: none
+  -webkit-transition: none
+
+.sg-html.expanded pre
+  max-height: 400px
+
+// Scroll
+.sg-html pre
+  &::-webkit-scrollbar
+    width: 15px
+    height: 15px
+
+  &::-webkit-scrollbar-thumb
+    background: rgba(0, 0, 0, 0.1)
+    border-radius: 8px
+    border: solid 3px $bluish

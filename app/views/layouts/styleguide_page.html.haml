@@ -1,0 +1,30 @@
+- content_for :body do
+  %aside.sg-toc
+    %h1
+      %strong= styleguide_title
+      %small Style guide
+
+    %ul
+      - styleguide_sections.each do |id, name|
+        %li
+          %a{class: (id == @section ? 'active' : ''), href: id}
+            %span.sg-number= "#{id}"
+            %span.sg-name= name
+
+  %section.sg-body
+    = yield
+
+  %script{src: "http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js"}
+  %script{src: "http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"}
+  %link{href: "http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css", type: "text/css", rel: "stylesheet"}
+  :javascript
+    $(function() { prettyPrint(); });
+    $('.sg-expand').on('click', function expand() {
+      $(this).closest('.sg-html').toggleClass('expanded');
+    });
+
+- content_for :head do
+  = stylesheet_link_tag 'styleguide'
+  = stylesheet_link_tag 'styleguide-extras'
+
+= render file: 'layouts/styleguide'
