@@ -15,6 +15,9 @@ module StyleguideHelper
   #
   #  * `code` - (Boolean) shows the code if *true*, hides if *false*. Defaults to *true*.
   #
+  #  * `width` - (Optional) width for the inner area. Specify this for
+  #  documenting long things.
+  #
   # Example:
   #
   #     = kss_block '1.1' do
@@ -39,6 +42,9 @@ module StyleguideHelper
     align = "align-#{options[:align]}"
     classes = [bg, align]
 
+    inner_style = ''
+    inner_style = "width: #{options[:width]}px"  if options[:width]
+
     render \
       partial: 'styleguides/block',
       locals: {
@@ -49,6 +55,7 @@ module StyleguideHelper
         section: section,
         modifiers: (section.modifiers rescue Array.new),
         options: options,
+        inner_style: inner_style,
       }
   end
 

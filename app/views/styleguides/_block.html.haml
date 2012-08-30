@@ -21,12 +21,12 @@
             = modifier.description
 
   .sg-canvas{class: canvas_class}
-    != html.gsub('$modifier_class', '')
+    %div{style: inner_style}!= html
 
   - modifiers.each do |modifier|
     .sg-modifier.sg-canvas{class: canvas_class}
       %span.sg-modifier-name= modifier.name
-      = capture modifier.name, &code_block
+      %div{style: inner_style}= capture modifier.name, &code_block
 
   - if show_code
     .sg-html
