@@ -135,6 +135,27 @@ Using in production
 Just make sure to add `styleguide.css` and `styleguide-extras.css` to your
 precompilation list. Usually this is in `config/environments/production.rb`.
 
+Our bias
+--------
+
+We use this happily with our client projects, and our clients are happy with it,
+too. It has quite a bias with our process (for instance: HAML by default), sorry
+about that.
+
+If you feel this is too limiting, you can always override the
+[templates](https://github.com/nadarei/nkss-rails/tree/master/app/views)
+or 
+[CSS](https://github.com/nadarei/nkss-rails/tree/master/app/assets/stylesheets)
+by copying them to your application.
+
+Alternatively, simply copy the entire gem to your project and hack away at it
+yourself:
+
+    $ git clone https://github.com/nadarei/nkss-rails.git ./vendor/nkss-rails
+    
+    # In your gemfile:
+    gem 'nkss-rails', path: 'vendor/nkss-rails'
+
 Acknowledgements
 ----------------
 
