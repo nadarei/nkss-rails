@@ -142,6 +142,9 @@ We use this happily with our client projects, and our clients are happy with it,
 too. It has quite a bias with our process (for instance: HAML by default), sorry
 about that.
 
+Our primary purpose of maintaining this package is to use it for our projects;
+as such, we can't always guarantee that all contributions will be merged in.
+
 If you feel this is too limiting, you can always override the
 [templates](https://github.com/nadarei/nkss-rails/tree/master/app/views)
 or 
