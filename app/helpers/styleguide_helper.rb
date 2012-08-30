@@ -1,5 +1,26 @@
+# # Nkss: Helpers
+# A bunch of helpers you can use in your styleguides.
+
 module StyleguideHelper
 
+  # ### kss_block
+  # Documents a styleguide block.
+  #
+  #     = kss_block '1.1' do
+  #
+  # Some options you can specify:
+  #
+  #  * `background` - The background color. Can be *clear*, *white*, *black*,
+  #  *light*, or *dark*.
+  #
+  #  * `align` - Text alignment. Can be *left*, *right*, or *center*.
+  #
+  #  * `code` - (Boolean) shows the code if *true*, hides if *false*. Defaults to *true*.
+  #
+  # Example:
+  #
+  #     = kss_block '1.1', background: 'dark' do
+  #
   def kss_block(section_id, options={}, &block)
     section = @styleguide.section(section_id)
 
@@ -7,7 +28,7 @@ module StyleguideHelper
 
     example_html = capture(&block)
 
-    defaults = { background: 'light', align: 'left' }
+    defaults = { background: 'light', align: 'left', code: 'true' }
     options = defaults.merge(options)
 
     # Build the CSS classes
@@ -21,6 +42,7 @@ module StyleguideHelper
         canvas_class: classes.join(' '),
         code_block: block,
         html: example_html,
+        show_code: options[:code],
         section: section,
         modifiers: (section.modifiers rescue Array.new),
         options: options,

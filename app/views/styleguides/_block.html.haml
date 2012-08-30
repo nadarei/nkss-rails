@@ -22,7 +22,8 @@
       %span.sg-modifier-name= modifier.name
       = capture modifier.name, &code_block
 
-  .sg-html
-    %button.sg-expand +
-    %pre.prettyprint.lang-html!= h(html.gsub('', ''))
+  - if show_code
+    .sg-html
+      %button.sg-expand +
+      %pre.prettyprint.lang-html!= h(html.gsub('', ''))
 
