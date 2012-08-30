@@ -27,6 +27,11 @@ module StyleguideHelper
       }
   end
 
+  # Renders a type specimen.
+  def kss_specimen
+    render partial: 'styleguides/specimen'
+  end
+
   def markdown(text)
     require 'bluecloth'
 
