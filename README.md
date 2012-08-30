@@ -33,7 +33,7 @@ Add me to your `Gemfile`.
 Then type `bundle` to update your bundle. Then, install the needed files into
 your project:
 
-    $ rails generate nkss:install
+    $ bundle exec rails generate nkss:install
 
 Now move on to the next section.
 
