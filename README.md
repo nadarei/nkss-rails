@@ -1,4 +1,8 @@
-# nkss-rails: Nadarei KSS Styleguides for Rails
+Nadarei KSS
+===========
+
+**Nadarei KSS Styleguides** lets you create pretty styleguides for your Rails
+3.2 projects.
 
 ![Image](https://raw.github.com/nadarei/nkss-rails/misc/sample.jpg)
 
@@ -8,56 +12,59 @@ What is KSS?
 It's a standard for documenting stylesheets. It's also a tool that parses these
 sheets, which `nkss-rails` uses.
 
-See the website: http://warpspire.com/kss
+See the KSS website at [warpspire.com/kss](http://warpspire.com/kss).
 
-What is nkss-rails?
--------------------
+### What is nkss-rails?
 
-A drop-in, easy-to-use, gorgeous-by-default Rails engine you can put into your
+A drop-in, easy-to-use, gorgeous-by-default Rails plugin you can put into your
 projects so you can instantly have cute docs.
+
+It's a pre-configured distribution of KSS. I've already done the grunt work for
+you, like setting up the layouts, templates and CSS files for your styleguide.
+All you gotta worry about is documenting your styles!
 
 Installation
 ------------
 
 Add me to your `Gemfile`.
 
-``` ruby
-gem 'nkss-rails', github: 'nadarei/nkss-rails'
-```
+    gem 'nkss-rails', github: 'nadarei/nkss-rails'
 
-Install my files.
+Then type `bundle` to update your bundle. Then, install the needed files into
+your project:
 
-```
-$ rails generate nkss:install
-```
+    $ rails generate nkss:install
 
 Now move on to the next section.
 
-Customization
--------------
+### Customization
 
 This gives you the following things that you should customize:
 
- * `config/styleguides.yml` - a list of sections in your styleguide. Your
+#### `config/styleguides.yml`
+
+ A list of sections in your styleguide. Your
  mission: edit this file to add your own sections.
 
- * `app/views/styleguides/` - a repository of your styleguides. Your mission:
+#### `app/views/styleguides/`
+
+ Your styleguides live here. Your mission:
  edit the first styleguide (*1.html.haml*) and later, add your own.
 
- * `app/views/layouts/styleguide.html.haml` - the layout for your styleguide.
- Your mission: make sure that this loads the right styles and scripts that your
+#### `app/views/layouts/styleguide.html.haml`
+
+ The layout for your styleguide. Your mission: make sure that this loads the
+ right styles and scripts that your
  application uses.
 
- * `app/assets/stylesheets/styleguide-extras.css` - Place any extra CSS
- definitions in here.
+#### `app/assets/stylesheets/styleguide-extras.css`
 
-Also you'll have:
+ Place any extra CSS definitions in here.
 
- * `app/assets/stylesheets/example-for-styleguides.css` - An example of a
- documented KSS block. Study it, then delete it.
+#### `app/assets/stylesheets/example-for-styleguides.css`
+ An example of a documented KSS block. Study it, then delete it.
 
-Viewing your sheets
--------------------
+### Viewing your sheets
 
 Now visit `http://localhost:8000/styleguides`. It should work straight away. By
 default, it's only enabled in development mode.
@@ -65,15 +72,61 @@ default, it's only enabled in development mode.
 This works because you have a new route added to your app that mounts the Nkss
 engine to that path:
 
-``` ruby
-Rails.application.routes.draw do
-  ...
+    Rails.application.routes.draw do
+      ...
+      mount Nkss::Engine => '/styleguides'  if Rails.env.development?
+      ...
+    end
 
-  mount Nkss::Engine => '/styleguides'  if Rails.env.development?
+How to document your styles
+---------------------------
 
-  ...
-end
-```
+When you do the process above, you should already have an example in
+`app/assets/stylesheets/example-for-styleguides.css`. But here's how to do it,
+anyway...
+
+### Document your CSS
+
+In your CSS file, add a KSS document block. In this example, we'll define
+section `1.3`. Refer to the [KSS Syntax](http://warpspire.com/kss/syntax/) page 
+for more info.
+
+    /*
+    A button for doing things.
+    
+    Styleguide 1.3.
+    */
+    .button {
+      color: red
+    }
+
+### Add the markup
+
+Add the markup in the corresponding section in
+`app/views/styleguides/N.html.haml`, where `N` is the main section number. In
+this case, we'll be editing `1.html.haml`.
+
+    -# 1.html.haml
+    = kss_block '1.3' do
+      %a.button{href: '#'} Do things
+
+### For new main sections
+
+If you're adding a new main section, edit the file `config/styleguides.yml` to
+add it to the menu.
+
+    # config/styleguides.yml
+    title: My Site
+    sections:
+      1: Buttons
+      2: Forms
+      3: Ratings
+      4: ...
+
+### That's it!
+
+You should see your newly-documented style in
+`http://localhost:8000/styleguides/1`.
 
 Using in production
 -------------------

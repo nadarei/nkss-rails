@@ -9,11 +9,12 @@ Gem::Specification.new do |s|
   s.version     = Nkss::VERSION
   s.authors     = ["Rico Sta. Cruz", "Nadarei, Inc."]
   s.email       = ["rico@ambiescent.com"]
-  s.homepage    = "http://github.com/nadarei/nadarei-styleguides"
-  s.summary     = "TODO: Summary of NadareiStyleguidesRails."
-  s.description = "TODO: Description of NadareiStyleguidesRails."
+  s.homepage    = "http://nadarei.co/nkss-rails"
+  s.summary     = "Create pretty styleguides for your Rails 3.2 projects."
+  s.description = "Nkss-rails is a drop-in, easy-to-use, gorgeous-by-default Rails plugin you can put into your
+projects so you can instantly have cute docs."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,lib}/**/*"] + ["Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.0"
