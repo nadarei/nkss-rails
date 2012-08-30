@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Styleguide CSS</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../style.css" />
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js'></script>
+</head>
+<body>
+  <div id="area">
+    <div class='file-header'>
+              <a href="https://github.com/nadarei/nkss-rails/blob/master/app/assets/stylesheets/styleguide.sass">
+          <strong title='app/assets/stylesheets/styleguide.sass'>styleguide.sass</strong>
+          <small>View source</small>
+        </a>
+          </div>
+
+    <table cellpadding="0" cellspacing="0" class="extension-sass">
+      <thead>
+        <tr>
+          <th class="docs">
+          </th>
+          <th class="code">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+                                      
+          <tr id="Templates-Styleguide-CSS" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Templates-Styleguide-CSS">&#182;</a>
+              </div>
+              <h1>Templates: Styleguide CSS</h1>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-1" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>This is the CSS stylesheet for the styleguide pages.</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="na">$pad:</span> <span class="mi">50</span><span class="kt">px</span>
+<span class="na">$checkerboard:</span> <span class="s2">&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAF0lEQVQI12P4BAI/QICBFCaYBPNJYQIAkUZftTbC4sIAAAAASUVORK5CYII=&quot;</span>
+<span class="na">$dark-checkerboard:</span> <span class="s2">&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAFklEQVQI12NQBQF2EGAghQkmwXxSmADZJQiZ2ZZ46gAAAABJRU5ErkJggg==&quot;</span>
+<span class="na">$mono:</span> <span class="s1">&#39;</span><span class="s2">Menlo&#39;</span><span class="o">,</span> <span class="s1">&#39;</span><span class="s2">Monaco&#39;</span><span class="o">,</span> <span class="s1">&#39;</span><span class="s2">Lucida Console&#39;</span><span class="o">,</span> <span class="no">monospace</span>
+<span class="na">$sans:</span> <span class="s1">&#39;</span><span class="s2">Helvetica Neue&#39;</span><span class="o">,</span> <span class="no">sans-serif</span>
+<span class="na">$bluish:</span> <span class="mh">#f0f7fb</span>
+
+<span class="nt">html</span><span class="o">,</span> <span class="nt">body</span>
+  <span class="na">margin:</span> <span class="mi">0</span>
+  <span class="na">padding:</span> <span class="mi">0</span>
+
+<span class="k">@mixin</span> <span class="nt">code</span>
+  <span class="na">background:</span> <span class="mh">#eee</span>
+  <span class="na">padding:</span> <span class="mi">4</span><span class="kt">px</span> <span class="mi">4</span><span class="kt">px</span>
+  <span class="na">border-radius:</span> <span class="mi">2</span><span class="kt">px</span>
+  <span class="na">margin:</span> <span class="mi">0</span> <span class="mi">2</span><span class="kt">px</span>
+  <span class="na">box-shadow:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.2</span><span class="p">)</span>
+
+<span class="nc">.sg-badge</span>
+  <span class="na">position:</span> <span class="no">absolute</span>
+  <span class="na">z-index:</span> <span class="mi">1</span>
+  <span class="na">right:</span> <span class="mi">0</span>
+  <span class="na">top:</span> <span class="mi">0</span>
+  <span class="na">padding:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">10</span><span class="kt">px</span>
+  <span class="na">background:</span> <span class="mh">#eee</span>
+  <span class="na">color:</span> <span class="mh">#888</span>
+  <span class="na">text-shadow:</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">0</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.7</span><span class="p">)</span>
+  <span class="na">border-bottom-left-radius:</span> <span class="mi">5</span><span class="kt">px</span>
+  <span class="na">border-left:</span> <span class="no">solid</span> <span class="mi">1</span><span class="kt">px</span> <span class="mh">#ddd</span>
+  <span class="na">border-bottom:</span> <span class="no">solid</span> <span class="mi">1</span><span class="kt">px</span> <span class="mh">#ddd</span>
+  <span class="na">font-size:</span> <span class="mi">9</span><span class="kt">pt</span>
+  <span class="na">font-family:</span> <span class="err">$</span><span class="n">sans</span>
+
+<span class="nt">body</span>
+  <span class="na">padding:</span> <span class="err">$</span><span class="n">pad</span> <span class="ne">!important</span>
+  <span class="na">background:</span> <span class="mh">#fcfcfc</span> <span class="ne">!important</span>
+  <span class="na">border-top:</span> <span class="no">solid</span> <span class="mi">6</span><span class="kt">px</span> <span class="mh">#222</span> <span class="ne">!important</span>
+
+<span class="nt">html</span><span class="o">,</span> <span class="nt">body</span>
+  <span class="na">overflow:</span> <span class="no">inherit</span> <span class="ne">!important</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="Layout" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Layout">&#182;</a>
+              </div>
+              <h3>Layout</h3>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="nc">.sg-body</span>
+  <span class="na">margin-left:</span> <span class="mi">180</span><span class="kt">px</span> <span class="o">+</span> <span class="err">$</span><span class="n">pad</span>
+  <span class="na">padding-bottom:</span> <span class="mi">20</span><span class="kt">px</span>
+
+<span class="nt">body</span> <span class="nc">.sg-toc</span>
+  <span class="na">font-family:</span> <span class="err">$</span><span class="n">sans</span>
+  <span class="na">font-size:</span> <span class="mi">10</span><span class="kt">pt</span>
+  <span class="na">width:</span> <span class="mi">180</span><span class="kt">px</span>
+  <span class="na">position:</span> <span class="no">absolute</span>
+  <span class="na">top:</span> <span class="err">$</span><span class="n">pad</span>
+  <span class="na">left:</span> <span class="err">$</span><span class="n">pad</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="Contents" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Contents">&#182;</a>
+              </div>
+              <h3>Contents</h3>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="nc">.sg-toc</span>
+  <span class="nt">h1</span>
+    <span class="na">font-size:</span> <span class="mi">18</span><span class="kt">pt</span>
+    <span class="na">color:</span> <span class="mh">#888</span>
+    <span class="na">font-weight:</span> <span class="mi">200</span>
+    <span class="na">line-height:</span> <span class="mi">1</span><span class="mf">.2</span>
+
+    <span class="na">margin-bottom:</span> <span class="mi">0</span><span class="kt">px</span>
+    <span class="na">padding-bottom:</span> <span class="mi">30</span><span class="kt">px</span>
+
+    <span class="nt">small</span><span class="o">,</span> <span class="nt">strong</span>
+      <span class="na">display:</span> <span class="no">block</span>
+      <span class="na">text-align:</span> <span class="no">right</span>
+
+    <span class="nt">small</span>
+      <span class="na">font-size:</span> <span class="mi">1</span><span class="kt">em</span>
+    <span class="nt">strong</span>
+      <span class="na">font-weight:</span> <span class="no">bold</span>
+      <span class="na">color:</span> <span class="mh">#222</span>
+
+  <span class="nt">ul</span><span class="o">,</span> <span class="nt">li</span>
+    <span class="na">list-style-type:</span> <span class="no">none</span>
+    <span class="na">margin:</span> <span class="mi">0</span>
+    <span class="na">padding:</span> <span class="mi">0</span>
+
+  <span class="nt">li</span> <span class="nt">a</span>
+    <span class="na">border-top:</span> <span class="no">solid</span> <span class="mi">1</span><span class="kt">px</span> <span class="mh">#eee</span>
+
+  <span class="nt">a</span>
+    <span class="na">display:</span> <span class="no">block</span>
+    <span class="na">padding:</span> <span class="mi">7</span><span class="kt">px</span> <span class="mi">0</span>
+    <span class="na">font-weight:</span> <span class="no">normal</span>
+    <span class="na">color:</span> <span class="mh">#777</span>
+
+    <span class="na">height:</span> <span class="mi">24</span><span class="kt">px</span>
+    <span class="na">line-height:</span> <span class="mi">24</span><span class="kt">px</span>
+
+  <span class="nt">a</span><span class="nd">:after</span>
+    <span class="na">content:</span> <span class="s1">&#39;</span><span class="s2">&#39;</span>
+    <span class="na">display:</span> <span class="no">block</span>
+    <span class="na">clear:</span> <span class="no">both</span>
+
+  <span class="nt">a</span><span class="nd">:hover</span>
+    <span class="na">color:</span> <span class="mh">#36c</span>
+
+  <span class="nt">a</span><span class="nc">.active</span>
+    <span class="na">font-weight:</span> <span class="no">bold</span>
+    <span class="na">color:</span> <span class="mh">#222</span>
+
+  <span class="nc">.sg-number</span>
+    <span class="na">float:</span> <span class="no">left</span>
+
+  <span class="nt">a</span> <span class="nc">.sg-number</span><span class="nd">:after</span>
+    <span class="na">content:</span> <span class="s1">&#39;</span><span class="s2">\2192&#39;</span>
+    <span class="na">margin-left:</span> <span class="mi">10</span><span class="kt">px</span>
+    <span class="na">color:</span> <span class="mh">#ddd</span>
+
+  <span class="nc">.sg-name</span>
+    <span class="na">float:</span> <span class="no">right</span>
+    <span class="na">text-align:</span> <span class="no">right</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="section-4" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <hr />            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-5" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Layout</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="nc">.sg-body</span> <span class="nc">.sg-example</span>
+  <span class="na">margin-bottom:</span> <span class="err">$</span><span class="n">pad</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="An-example-block" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#An-example-block">&#182;</a>
+              </div>
+              <h3>An example block</h3>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="nc">.sg-example</span>
+  <span class="na">border:</span> <span class="no">solid</span> <span class="mi">1</span><span class="kt">px</span> <span class="mh">#bbb</span>
+  <span class="na">box-shadow:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">4</span><span class="kt">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.05</span><span class="p">)</span>
+  <span class="na">margin-left:</span> <span class="mi">60</span><span class="kt">px</span>
+  <span class="na">position:</span> <span class="no">relative</span>
+
+  <span class="nc">.sg-filename</span>
+    <span class="k">@extend</span> <span class="nc">.sg-badge</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="section-7" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Canvas area</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre>  <span class="c1">.sg-canvas</span>
+    <span class="c1">overflow: hidden</span>
+    <span class="c1">padding: 25px</span>
+    <span class="c1">border-top: solid 1px #ccc</span>
+    <span class="c1">box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.2)</span>
+
+    <span class="c1">position: relative</span>
+    <span class="c1">z-index: 0</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="section-8" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Reset the inside elements of the canvas.</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre>  <span class="c1">.sg-canvas &gt; *</span>
+    <span class="c1">margin: 0 auto</span>
+    <span class="c1">float: none</span>
+    <span class="c1">position: relative</span>
+    <span class="c1">bottom: inherit</span>
+    <span class="c1">right: inherit</span>
+    <span class="c1">left: inherit</span>
+    <span class="c1">top: inherit</span>
+
+  <span class="c1">.sg-canvas.align-center</span>
+    <span class="c1">text-align: center</span>
+
+  <span class="c1">.sg-canvas.align-left</span>
+    <span class="c1">text-align: left</span>
+
+  <span class="c1">.sg-canvas.align-right</span>
+    <span class="c1">text-align: right</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="section-9" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Light</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre>  <span class="c1">.sg-canvas.bg-clear</span>
+    <span class="c1">background: transparent</span>
+
+  <span class="c1">.sg-canvas.bg-light</span>
+    <span class="c1">background: url($checkerboard)</span>
+
+  <span class="c1">.sg-canvas.bg-white</span>
+    <span class="c1">background: #fff</span>
+    <span class="c1">border: solid 10px #ddd</span>
+
+  <span class="c1">.sg-canvas.bg-black</span>
+    <span class="c1">background: #000</span>
+
+  <span class="c1">.sg-canvas.bg-dark</span>
+    <span class="c1">background: url($dark-checkerboard)</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="section-10" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Canvas modifier</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre>  <span class="c1">.sg-modifier &gt; .sg-modifier-name</span>
+    <span class="c1">@extend .sg-badge</span>
+    <span class="c1">font-weight: bold</span>
+    <span class="c1">color: #222</span>
+    <span class="c1">padding: 3px 15px</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="section-11" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Description</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre>  <span class="c1">.sg-description</span>
+    <span class="c1">background: #fff</span>
+    <span class="c1">line-height: 1.5</span>
+    <span class="c1">font-family: $sans</span>
+
+    <span class="c1">code</span>
+      <span class="c1">@include code</span>
+
+  <span class="c1">&gt; h3</span>
+    <span class="c1">background: #222</span>
+    <span class="c1">color: #fff</span>
+    <span class="c1">text-align: center</span>
+    <span class="c1">font-weight: bold</span>
+    <span class="c1">font-size: 10pt</span>
+    <span class="c1">font-family: $sans</span>
+
+    <span class="c1">box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05)</span>
+
+    <span class="c1">display: block</span>
+    <span class="c1">width: 50px</span>
+    <span class="c1">height: 50px</span>
+    <span class="c1">line-height: 50px</span>
+
+    <span class="c1">float: left</span>
+    <span class="c1">margin-left: -70px</span>
+    <span class="c1">border-radius: 25px</span>
+
+  <span class="c1">.sg-description</span>
+    <span class="c1">padding: 25px</span>
+    <span class="c1">font-size: 10pt</span>
+    <span class="c1">color: #444</span>
+
+  <span class="c1">.sg-description</span>
+    <span class="c1">h1, h2, h3, h4, h5, h6</span>
+      <span class="c1">color: #222</span>
+      <span class="c1">margin: 0 0 5px 0</span>
+      <span class="c1">padding: 0</span>
+      <span class="c1">font-weight: bold</span>
+      <span class="c1">font-size: 12pt</span>
+
+      <span class="c1">code</span>
+        <span class="c1">font-size: 0.9em</span>
+        <span class="c1">color: #8080b0</span>
+        <span class="c1">font-weight: normal</span>
+        <span class="c1">margin-left: 7px</span>
+        <span class="c1">padding: 0</span>
+
+        <span class="c1">background: transparent</span>
+        <span class="c1">box-shadow: none</span>
+
+        <span class="c1">font-family: $mono</span>
+
+        <span class="c1">&amp;:before</span>
+          <span class="c1">content: &#39;\203a&#39;</span>
+          <span class="c1">margin-right: 10px</span>
+
+  <span class="c1">ul.sg-modifiers</span>
+    <span class="c1">&amp;</span>
+      <span class="c1">margin: 20px 0 0 25px</span>
+      <span class="c1">padding: 0</span>
+      <span class="c1">list-style-type: none</span>
+
+    <span class="c1">li</span>
+      <span class="c1">margin: 5px 0</span>
+      <span class="c1">padding: 0</span>
+      <span class="c1">list-style-type: disc</span>
+
+    <span class="c1">li strong</span>
+      <span class="c1">@include code</span>
+      <span class="c1">padding: 1px 5px</span>
+      <span class="c1">font-weight: bold</span>
+
+<span class="nc">.sg-html</span>
+  <span class="na">border-top:</span> <span class="no">solid</span> <span class="mi">1</span><span class="kt">px</span> <span class="mh">#ccc</span>
+  <span class="na">position:</span> <span class="no">relative</span>
+
+  <span class="na">background:</span> <span class="err">$</span><span class="n">bluish</span>
+  <span class="na">box-shadow:</span> <span class="no">inset</span> <span class="mi">0</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">4</span><span class="kt">px</span> <span class="mi">-4</span><span class="kt">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.1</span><span class="p">)</span>
+
+  <span class="nc">.sg-expand</span>
+    <span class="na">border:</span> <span class="mi">0</span>
+    <span class="na">padding:</span> <span class="mi">0</span>
+    <span class="na">margin:</span> <span class="mi">0</span>
+
+    <span class="na">position:</span> <span class="no">absolute</span>
+    <span class="na">top:</span> <span class="mi">0</span><span class="kt">px</span>
+    <span class="na">left:</span> <span class="mi">-51</span><span class="kt">px</span>
+    <span class="na">bottom:</span> <span class="mi">0</span><span class="kt">px</span>
+
+    <span class="na">line-height:</span> <span class="mi">100</span><span class="kt">%</span>
+    <span class="na">width:</span> <span class="mi">50</span><span class="kt">px</span>
+    <span class="na">text-align:</span> <span class="no">center</span>
+
+    <span class="na">background:</span> <span class="err">$</span><span class="n">bluish</span> <span class="o">*</span> <span class="mi">0</span><span class="mf">.9</span>
+    <span class="na">box-shadow:</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">0</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.25</span><span class="p">)</span><span class="o">,</span> <span class="no">inset</span> <span class="mi">-6</span><span class="kt">px</span> <span class="mi">0</span> <span class="mi">4</span><span class="kt">px</span> <span class="mi">-4</span><span class="kt">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.1</span><span class="p">)</span>
+
+    <span class="na">border-top-left-radius:</span> <span class="mi">4</span><span class="kt">px</span>
+    <span class="na">border-bottom-left-radius:</span> <span class="mi">4</span><span class="kt">px</span>
+
+    <span class="na">color:</span> <span class="err">$</span><span class="n">bluish</span> <span class="o">*</span> <span class="mi">0</span><span class="mf">.7</span>
+    <span class="na">text-shadow:</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">0</span> <span class="n">rgba</span><span class="p">(</span><span class="ni">white</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.7</span><span class="p">)</span>
+    <span class="na">font-size:</span> <span class="mi">16</span><span class="kt">pt</span>
+    <span class="na">font-weight:</span> <span class="no">bold</span>
+    <span class="na">font-family:</span> <span class="err">$</span><span class="n">sans</span>
+    <span class="na">padding:</span> <span class="mi">0</span>
+
+    <span class="k">&amp;</span><span class="nd">:hover</span>
+      <span class="na">background:</span> <span class="err">$</span><span class="n">bluish</span> <span class="o">*</span> <span class="mi">0</span><span class="mf">.92</span>
+
+  <span class="nt">pre</span>
+    <span class="na">padding:</span> <span class="mi">20</span><span class="kt">px</span> <span class="ne">!important</span>
+    <span class="na">line-height:</span> <span class="mi">1</span><span class="mf">.5</span>
+    <span class="na">border:</span> <span class="mi">0</span> <span class="ne">!important</span>
+    <span class="na">color:</span> <span class="mh">#30305a</span>
+    <span class="na">text-shadow:</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">0</span> <span class="n">rgba</span><span class="p">(</span><span class="ni">white</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.6</span><span class="p">)</span>
+    <span class="na">font-size:</span> <span class="mi">8</span><span class="kt">pt</span>
+    <span class="na">font-family:</span> <span class="err">$</span><span class="n">mono</span>
+    <span class="na">max-height:</span> <span class="mi">60</span><span class="kt">px</span>
+
+    <span class="na">overflow-y:</span> <span class="no">scroll</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="section-12" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Hide</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="nc">.sg-example</span> <span class="nc">.sg-expand</span>
+  <span class="na">opacity:</span> <span class="mi">0</span>
+  <span class="na">transition:</span> <span class="no">opacity</span> <span class="mi">300</span><span class="kt">ms</span> <span class="n">linear</span>
+  <span class="na">-moz-transition:</span> <span class="no">opacity</span> <span class="mi">300</span><span class="kt">ms</span> <span class="n">linear</span>
+  <span class="na">-webkit-transition:</span> <span class="no">opacity</span> <span class="mi">300</span><span class="kt">ms</span> <span class="n">linear</span>
+<span class="nc">.sg-example</span><span class="nd">:hover</span> <span class="nc">.sg-expand</span>
+  <span class="na">opacity:</span> <span class="mi">1</span>
+  <span class="na">transition:</span> <span class="no">none</span>
+  <span class="na">-moz-transition:</span> <span class="no">none</span>
+  <span class="na">-webkit-transition:</span> <span class="no">none</span>
+
+<span class="nc">.sg-html.expanded</span> <span class="nt">pre</span>
+  <span class="na">max-height:</span> <span class="mi">400</span><span class="kt">px</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="section-13" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Scroll</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="nc">.sg-html</span> <span class="nt">pre</span>
+  <span class="k">&amp;</span><span class="nd">::-webkit-scrollbar</span>
+    <span class="na">width:</span> <span class="mi">15</span><span class="kt">px</span>
+    <span class="na">height:</span> <span class="mi">15</span><span class="kt">px</span>
+
+  <span class="k">&amp;</span><span class="nd">::-webkit-scrollbar-thumb</span>
+    <span class="na">background:</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.1</span><span class="p">)</span>
+    <span class="na">border-radius:</span> <span class="mi">8</span><span class="kt">px</span>
+    <span class="na">border:</span> <span class="no">solid</span> <span class="mi">3</span><span class="kt">px</span> <span class="err">$</span><span class="n">bluish</span></pre></div>            </td>
+          </tr>
+                                      
+          <tr id="Type-specimens" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Type-specimens">&#182;</a>
+              </div>
+              <h3>Type specimens</h3>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="nc">.sg-specimen</span>
+  <span class="na">margin:</span> <span class="mi">0</span> <span class="no">auto</span>
+  <span class="na">width:</span> <span class="mi">600</span><span class="kt">px</span>
+  <span class="na">padding:</span> <span class="mi">40</span><span class="kt">px</span>
+  <span class="na">background:</span> <span class="ni">white</span>
+  <span class="na">box-shadow:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">3</span><span class="kt">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.1</span><span class="p">)</span>
+  <span class="na">color:</span> <span class="mh">#333</span>
+
+  <span class="nc">.sg-drop</span>
+    <span class="na">font-size:</span> <span class="mi">4</span><span class="kt">em</span>
+    <span class="na">display:</span> <span class="no">block</span>
+    <span class="na">float:</span> <span class="no">right</span>
+    <span class="na">margin:</span> <span class="mi">-40</span><span class="kt">px</span> <span class="mi">0</span><span class="kt">px</span> <span class="mi">30</span><span class="kt">px</span> <span class="mi">30</span><span class="kt">px</span>
+    <span class="na">background:</span> <span class="mh">#f0f0f0</span>
+    <span class="na">padding:</span> <span class="mi">20</span><span class="kt">px</span>
+
+  <span class="nt">h3</span>
+    <span class="na">font-size:</span> <span class="mi">1</span><span class="mf">.7</span><span class="kt">em</span>
+
+  <span class="nt">p</span>
+    <span class="na">margin-top:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">em</span>
+
+</pre></div>            </td>
+          </tr>
+              </tbody>
+    </table>
+
+    
+  </div>
+
+  <div id="sidebar">
+    <div class='header search'>
+      <input type='text' name='search' id='search-box' placeholder='Search...' />
+    </div>
+
+    <div class='header tabs'>
+      <button class='active' data-tab='pages'>Pages</button>
+      <button data-tab='files'>Files</button>
+    </div>
+
+    <div class='scroll-area'>
+      <!-- .multipage here means there will be a sidebar of many pages. -->
+      <div class='list pages multipage'>
+                  
+          <!-- Breadcrumbs -->
+                                  <ul class='breadcrumbs'>
+                              
+                <li class='page back'>
+                                  <a href='../../../index.html'>Nadarei KSS</a>
+                                              
+                <li class='page back'>
+                                  <span class='a'>Templates</span>
+                                          </ul>
+          
+          <!-- The page and its headings -->
+          <ul class='current-page'>
+                        
+            <li class='page level-0'>
+              <a href='#'>Styleguide CSS</a>
+                              <ul>
+                                                                              <li class='heading level-3'>
+                      <a href="#Layout">
+                        Layout                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#Contents">
+                        Contents                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#An-example-block">
+                        An example block                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#Type-specimens">
+                        Type specimens                      </a>
+                    </li>
+                                  </ul>
+                          </li>
+          </ul>
+
+          <ul class='reference'>
+
+            <!-- The reference page -->
+                          <li class='page has-children level-0'>
+                                  <span class='a'>Templates</span>
+                              </li>
+            
+            <!-- Subpages of the ref -->
+                                                                                                                      
+                <li class='page  level-1'>
+
+                                                        <a href='../../../app/views/layouts/styleguide_page.html.html' class=''>Styleguide page template</a>
+                  
+                                                    </li>
+                                                                                              
+                <li class='page  level-1'>
+
+                                                        <a href='../../../app/views/styleguides/_block.html.html' class=''>Block partial</a>
+                  
+                                                    </li>
+                                                                                              
+                <li class='page  level-1'>
+
+                                                        <a href='../../../app/assets/stylesheets/styleguide.html' class='active'>Styleguide CSS</a>
+                  
+                                                    </li>
+                          
+          </ul>
+              </div>
+
+      <div class='list files hidden'>
+        
+        <ul>
+                  <li class='level-1'>
+                                                    <button class='item folder expanded'>
+                <i></i>
+                app              </button>
+              <ul class=''>
+                          <li class='level-2'>
+                                                    <button class='item folder expanded'>
+                <i></i>
+                assets              </button>
+              <ul class=''>
+                          <li class='level-3'>
+                                                    <button class='item folder expanded'>
+                <i></i>
+                stylesheets              </button>
+              <ul class=''>
+                          <li class='level-4'>
+                                                    <a href='../../../app/assets/stylesheets/styleguide.html#f' class='item file active'>
+                <i></i>
+                styleguide.sass              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-2'>
+                                                    <button class='item folder '>
+                <i></i>
+                helpers              </button>
+              <ul class='hidden'>
+                          <li class='level-3'>
+                                                    <a href='../../../app/helpers/styleguide_helper.html#f' class='item file '>
+                <i></i>
+                styleguide_helper.rb              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-2'>
+                                                    <button class='item folder '>
+                <i></i>
+                views              </button>
+              <ul class='hidden'>
+                          <li class='level-3'>
+                                                    <button class='item folder '>
+                <i></i>
+                layouts              </button>
+              <ul class='hidden'>
+                          <li class='level-4'>
+                                                    <a href='../../../app/views/layouts/styleguide_page.html.html#f' class='item file '>
+                <i></i>
+                styleguide_page.html.haml              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-3'>
+                                                    <button class='item folder '>
+                <i></i>
+                styleguides              </button>
+              <ul class='hidden'>
+                          <li class='level-4'>
+                                                    <a href='../../../app/views/styleguides/_block.html.html#f' class='item file '>
+                <i></i>
+                _block.html.haml              </a>
+                      </li>
+                                                    <li class='level-4'>
+                                                    <a href='../../../app/views/styleguides/_specimen.html.html#f' class='item file '>
+                <i></i>
+                _specimen.html.haml              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                    <li class='level-1'>
+                                                    <a href='../../../index.html#f' class='item file '>
+                <i></i>
+                README.md              </a>
+                      </li>
+                                  </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src='../../../script.js'></script>
+</body>
+</html>

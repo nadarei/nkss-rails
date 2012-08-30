@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Block partial</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../style.css" />
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js'></script>
+</head>
+<body>
+  <div id="area">
+    <div class='file-header'>
+              <a href="https://github.com/nadarei/nkss-rails/blob/master/app/views/styleguides/_block.html.haml">
+          <strong title='app/views/styleguides/_block.html.haml'>_block.html.haml</strong>
+          <small>View source</small>
+        </a>
+          </div>
+
+    <table cellpadding="0" cellspacing="0" class="extension-haml">
+      <thead>
+        <tr>
+          <th class="docs">
+          </th>
+          <th class="code">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+                                      
+          <tr id="Templates-Block-partial" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Templates-Block-partial">&#182;</a>
+              </div>
+              <h1>Templates: Block partial</h1>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-1" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>This is the partial invoked when you use the <code>kss_guide</code> helper.
+Don't like me? Just copy me into <code>app/views/styleguides/_block.html.haml</code> in
+your app.</p>            </td>
+            <td class="code">
+              <div class="highlight"><pre><span class="nt">%section</span><span class="nc">.sg-example</span>
+  <span class="nt">%h3</span><span class="p">=</span> <span class="n">section</span><span class="o">.</span><span class="n">section</span>
+
+  <span class="nt">%span</span><span class="nc">.sg-filename</span><span class="p">=</span> <span class="n">section</span><span class="o">.</span><span class="n">filename</span>
+
+  <span class="nc">.sg-description</span>
+    <span class="p">!=</span> <span class="n">markdown</span> <span class="n">h</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+
+    <span class="p">-</span> <span class="k">if</span> <span class="n">section</span><span class="o">.</span><span class="n">modifiers</span><span class="o">.</span><span class="n">any?</span>
+      <span class="nt">%ul</span><span class="nc">.sg-modifiers</span>
+        <span class="p">-</span> <span class="n">modifiers</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">modifier</span><span class="o">|</span>
+          <span class="nt">%li</span>
+            <span class="nt">%strong</span><span class="p">=</span> <span class="n">modifier</span><span class="o">.</span><span class="n">name</span>
+            <span class="p">=</span> <span class="s2">&quot;-&quot;</span>
+            <span class="p">=</span> <span class="n">modifier</span><span class="o">.</span><span class="n">description</span>
+
+  <span class="nc">.sg-canvas</span><span class="p">{</span><span class="n">class</span><span class="p">:</span> <span class="n">canvas_class</span><span class="p">}</span>
+    <span class="p">!=</span> <span class="n">html</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;$modifier_class&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+  <span class="p">-</span> <span class="n">modifiers</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">modifier</span><span class="o">|</span>
+    <span class="nc">.sg-modifier.sg-canvas</span><span class="p">{</span><span class="n">class</span><span class="p">:</span> <span class="n">canvas_class</span><span class="p">}</span>
+      <span class="nt">%span</span><span class="nc">.sg-modifier-name</span><span class="p">=</span> <span class="n">modifier</span><span class="o">.</span><span class="n">name</span>
+      <span class="p">=</span> <span class="n">capture</span> <span class="n">modifier</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">code_block</span>
+
+  <span class="p">-</span> <span class="k">if</span> <span class="n">show_code</span>
+    <span class="nc">.sg-html</span>
+      <span class="nt">%button</span><span class="nc">.sg-expand</span> +
+      <span class="nt">%pre</span><span class="nc">.prettyprint.lang-html</span><span class="p">!=</span> <span class="n">h</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+</pre></div>            </td>
+          </tr>
+              </tbody>
+    </table>
+
+    
+  </div>
+
+  <div id="sidebar">
+    <div class='header search'>
+      <input type='text' name='search' id='search-box' placeholder='Search...' />
+    </div>
+
+    <div class='header tabs'>
+      <button class='active' data-tab='pages'>Pages</button>
+      <button data-tab='files'>Files</button>
+    </div>
+
+    <div class='scroll-area'>
+      <!-- .multipage here means there will be a sidebar of many pages. -->
+      <div class='list pages multipage'>
+                  
+          <!-- Breadcrumbs -->
+                                  <ul class='breadcrumbs'>
+                              
+                <li class='page back'>
+                                  <a href='../../../index.html'>Nadarei KSS</a>
+                                              
+                <li class='page back'>
+                                  <span class='a'>Templates</span>
+                                          </ul>
+          
+          <!-- The page and its headings -->
+          <ul class='current-page'>
+                        
+            <li class='page level-0'>
+              <a href='#'>Block partial</a>
+                          </li>
+          </ul>
+
+          <ul class='reference'>
+
+            <!-- The reference page -->
+                          <li class='page has-children level-0'>
+                                  <span class='a'>Templates</span>
+                              </li>
+            
+            <!-- Subpages of the ref -->
+                                                                                                                      
+                <li class='page  level-1'>
+
+                                                        <a href='../../../app/views/layouts/styleguide_page.html.html' class=''>Styleguide page template</a>
+                  
+                                                    </li>
+                                                                                              
+                <li class='page  level-1'>
+
+                                                        <a href='../../../app/views/styleguides/_block.html.html' class='active'>Block partial</a>
+                  
+                                                    </li>
+                                                                                              
+                <li class='page  level-1'>
+
+                                                        <a href='../../../app/assets/stylesheets/styleguide.html' class=''>Styleguide CSS</a>
+                  
+                                                    </li>
+                          
+          </ul>
+              </div>
+
+      <div class='list files hidden'>
+        
+        <ul>
+                  <li class='level-1'>
+                                                    <button class='item folder expanded'>
+                <i></i>
+                app              </button>
+              <ul class=''>
+                          <li class='level-2'>
+                                                    <button class='item folder '>
+                <i></i>
+                assets              </button>
+              <ul class='hidden'>
+                          <li class='level-3'>
+                                                    <button class='item folder '>
+                <i></i>
+                stylesheets              </button>
+              <ul class='hidden'>
+                          <li class='level-4'>
+                                                    <a href='../../../app/assets/stylesheets/styleguide.html#f' class='item file '>
+                <i></i>
+                styleguide.sass              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-2'>
+                                                    <button class='item folder '>
+                <i></i>
+                helpers              </button>
+              <ul class='hidden'>
+                          <li class='level-3'>
+                                                    <a href='../../../app/helpers/styleguide_helper.html#f' class='item file '>
+                <i></i>
+                styleguide_helper.rb              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-2'>
+                                                    <button class='item folder expanded'>
+                <i></i>
+                views              </button>
+              <ul class=''>
+                          <li class='level-3'>
+                                                    <button class='item folder '>
+                <i></i>
+                layouts              </button>
+              <ul class='hidden'>
+                          <li class='level-4'>
+                                                    <a href='../../../app/views/layouts/styleguide_page.html.html#f' class='item file '>
+                <i></i>
+                styleguide_page.html.haml              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-3'>
+                                                    <button class='item folder expanded'>
+                <i></i>
+                styleguides              </button>
+              <ul class=''>
+                          <li class='level-4'>
+                                                    <a href='../../../app/views/styleguides/_block.html.html#f' class='item file active'>
+                <i></i>
+                _block.html.haml              </a>
+                      </li>
+                                                    <li class='level-4'>
+                                                    <a href='../../../app/views/styleguides/_specimen.html.html#f' class='item file '>
+                <i></i>
+                _specimen.html.haml              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                    <li class='level-1'>
+                                                    <a href='../../../index.html#f' class='item file '>
+                <i></i>
+                README.md              </a>
+                      </li>
+                                  </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src='../../../script.js'></script>
+</body>
+</html>

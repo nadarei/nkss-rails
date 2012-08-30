@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nadarei KSS</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="style.css" />
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js'></script>
+</head>
+<body>
+  <div id="area">
+    <div class='file-header'>
+              <a href="https://github.com/nadarei/nkss-rails/blob/master/README.md">
+          <strong title='README.md'>README.md</strong>
+          <small>View source</small>
+        </a>
+          </div>
+
+    <table cellpadding="0" cellspacing="0" class="extension-md">
+      <thead>
+        <tr>
+          <th class="docs">
+          </th>
+          <th class="code">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+                                      
+          <tr id="Nadarei-KSS" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Nadarei-KSS">&#182;</a>
+              </div>
+              <h1>Nadarei KSS</h1>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-1" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p><strong>Nadarei KSS Styleguides</strong> lets you create pretty styleguides for your Rails
+3.2 projects.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-2" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p><img src="https://raw.github.com/nadarei/nkss-rails/misc/sample.jpg" alt="Image" title="" /></p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="What-is-KSS" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#What-is-KSS">&#182;</a>
+              </div>
+              <h2>What is KSS?</h2>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-4" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>It's a standard for documenting stylesheets. It's also a tool that parses these
+sheets, which <code>nkss-rails</code> uses.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-5" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>See the KSS website at <a href="http://warpspire.com/kss">warpspire.com/kss</a>.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="What-is-nkss-rails" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#What-is-nkss-rails">&#182;</a>
+              </div>
+              <h3>What is nkss-rails?</h3>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-7" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>A drop-in, easy-to-use, gorgeous-by-default Rails plugin you can put into your
+projects so you can instantly have cute docs.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-8" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>It's a pre-configured distribution of KSS. I've already done the grunt work for
+you, like setting up the layouts, templates and CSS files for your styleguide.
+All you gotta worry about is documenting your styles!</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="Installation" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Installation">&#182;</a>
+              </div>
+              <h2>Installation</h2>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-10" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Add me, and <code>haml</code>, to your <code>Gemfile</code>.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-11" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <pre><code>gem 'haml'
+gem 'nkss-rails', github: 'nadarei/nkss-rails'
+</code></pre>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-12" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Then type <code>bundle</code> to update your bundle. Then, install the needed files into
+your project:</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-13" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <pre><code>$ bundle exec rails generate nkss:install
+</code></pre>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-14" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Now move on to the next section.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="Customization" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Customization">&#182;</a>
+              </div>
+              <h3>Customization</h3>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-16" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>This gives you the following things that you should customize:</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="code-config-styleguides-yml-code" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#code-config-styleguides-yml-code">&#182;</a>
+              </div>
+              <h4><code>config/styleguides.yml</code></h4>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-18" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>A list of sections in your styleguide. Your
+ mission: edit this file to add your own sections.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="code-app-views-styleguides-code" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#code-app-views-styleguides-code">&#182;</a>
+              </div>
+              <h4><code>app/views/styleguides/</code></h4>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-20" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Your styleguides live here. Your mission:
+ edit the first styleguide (<em>1.html.haml</em>) and later, add your own.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="code-app-views-layouts-styleguide-html-haml-code" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#code-app-views-layouts-styleguide-html-haml-code">&#182;</a>
+              </div>
+              <h4><code>app/views/layouts/styleguide.html.haml</code></h4>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-22" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>The layout for your styleguide. Your mission: make sure that this loads the
+ right styles and scripts that your
+ application uses.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="code-app-assets-stylesheets-styleguide-extras-css-code" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#code-app-assets-stylesheets-styleguide-extras-css-code">&#182;</a>
+              </div>
+              <h4><code>app/assets/stylesheets/styleguide-extras.css</code></h4>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-24" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Place any extra CSS definitions in here.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="code-app-assets-stylesheets-example-for-styleguides-css-code" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#code-app-assets-stylesheets-example-for-styleguides-css-code">&#182;</a>
+              </div>
+              <h4><code>app/assets/stylesheets/example-for-styleguides.css</code></h4>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-26" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>An example of a documented KSS block. Study it, then delete it.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="Viewing-your-sheets" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Viewing-your-sheets">&#182;</a>
+              </div>
+              <h3>Viewing your sheets</h3>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-28" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Now visit <code>http://localhost:8000/styleguides</code>. It should work straight away. By
+default, it's only enabled in development mode.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-29" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>This works because you have a new route added to your app that mounts the Nkss
+engine to that path:</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-30" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <pre><code>Rails.application.routes.draw do
+  ...
+  mount Nkss::Engine =&gt; '/styleguides'  if Rails.env.development?
+  ...
+end
+</code></pre>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="How-to-document-your-styles" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#How-to-document-your-styles">&#182;</a>
+              </div>
+              <h2>How to document your styles</h2>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-32" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>When you do the process above, you should already have an example in
+<code>app/assets/stylesheets/example-for-styleguides.css</code>. But here's how to do it,
+anyway...</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="Document-your-CSS" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Document-your-CSS">&#182;</a>
+              </div>
+              <h3>Document your CSS</h3>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-34" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>In your CSS file, add a KSS document block. In this example, we'll define
+section <code>1.3</code>. Refer to the <a href="http://warpspire.com/kss/syntax/">KSS Syntax</a> page 
+for more info.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-35" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <pre><code>/*
+A button for doing things.
+
+Styleguide 1.3.
+*/
+.button {
+  color: red
+}
+</code></pre>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="Add-the-markup" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Add-the-markup">&#182;</a>
+              </div>
+              <h3>Add the markup</h3>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-37" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>Add the markup in the corresponding section in
+<code>app/views/styleguides/N.html.haml</code>, where <code>N</code> is the main section number. In
+this case, we'll be editing <code>1.html.haml</code>.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-38" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <pre><code>-# 1.html.haml
+= kss_block '1.3' do
+  %a.button{href: '#'} Do things
+</code></pre>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="For-new-main-sections" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#For-new-main-sections">&#182;</a>
+              </div>
+              <h3>For new main sections</h3>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-40" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>If you're adding a new main section, edit the file <code>config/styleguides.yml</code> to
+add it to the menu.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-41" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <pre><code># config/styleguides.yml
+title: My Site
+sections:
+  1: Buttons
+  2: Forms
+  3: Ratings
+  4: ...
+</code></pre>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="That-s-it" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#That-s-it">&#182;</a>
+              </div>
+              <h3>That's it!</h3>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-43" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>You should see your newly-documented style in
+<code>http://localhost:8000/styleguides/1</code>.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="Using-in-production" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Using-in-production">&#182;</a>
+              </div>
+              <h2>Using in production</h2>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-45" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-45">&#182;</a>
+              </div>
+              <p>Just make sure to add <code>styleguide.css</code> and <code>styleguide-extras.css</code> to your
+precompilation list. Usually this is in <code>config/environments/production.rb</code>.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="Our-bias" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Our-bias">&#182;</a>
+              </div>
+              <h2>Our bias</h2>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-47" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-47">&#182;</a>
+              </div>
+              <p>We use this happily with our client projects, and our clients are happy with it,
+too. It has quite a bias with our process (for instance: HAML by default), sorry
+about that.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-48" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-48">&#182;</a>
+              </div>
+              <p>Our primary purpose of maintaining this package is to use it for our projects;
+as such, we can't always guarantee that all contributions will be merged in.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-49" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-49">&#182;</a>
+              </div>
+              <p>If you feel this is too limiting, you can always override the
+<a href="https://github.com/nadarei/nkss-rails/tree/master/app/views">templates</a>
+or 
+<a href="https://github.com/nadarei/nkss-rails/tree/master/app/assets/stylesheets">CSS</a>
+by copying them to your application.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-50" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-50">&#182;</a>
+              </div>
+              <p>Alternatively, simply copy the entire gem to your project and hack away at it
+yourself:</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-51" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-51">&#182;</a>
+              </div>
+              <pre><code>$ git clone https://github.com/nadarei/nkss-rails.git ./vendor/nkss-rails
+
+# In your gemfile:
+gem 'nkss-rails', path: 'vendor/nkss-rails'
+</code></pre>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="Acknowledgements" class="heading">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#Acknowledgements">&#182;</a>
+              </div>
+              <h2>Acknowledgements</h2>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+                                      
+          <tr id="section-53" class="">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-53">&#182;</a>
+              </div>
+              <p>2012, MIT License.</p>            </td>
+            <td class="code">
+                          </td>
+          </tr>
+              </tbody>
+    </table>
+
+        <div class='fork-me-on-github'>
+      <a href='https://github.com/nadarei/nkss-rails'>
+        <span>Fork me on Github</span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div id="sidebar">
+    <div class='header search'>
+      <input type='text' name='search' id='search-box' placeholder='Search...' />
+    </div>
+
+    <div class='header tabs'>
+      <button class='active' data-tab='pages'>Pages</button>
+      <button data-tab='files'>Files</button>
+    </div>
+
+    <div class='scroll-area'>
+      <!-- .multipage here means there will be a sidebar of many pages. -->
+      <div class='list pages multipage'>
+                  
+          <!-- Breadcrumbs -->
+          
+          <!-- The page and its headings -->
+          <ul class='current-page'>
+                        
+            <li class='page level-0'>
+              <a href='#'>Nadarei KSS</a>
+                              <ul>
+                                                                              <li class='heading level-2'>
+                      <a href="#What-is-KSS">
+                        What is KSS?                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#What-is-nkss-rails">
+                        What is nkss-rails?                      </a>
+                    </li>
+                                                                              <li class='heading level-2'>
+                      <a href="#Installation">
+                        Installation                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#Customization">
+                        Customization                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#Viewing-your-sheets">
+                        Viewing your sheets                      </a>
+                    </li>
+                                                                              <li class='heading level-2'>
+                      <a href="#How-to-document-your-styles">
+                        How to document your styles                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#Document-your-CSS">
+                        Document your CSS                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#Add-the-markup">
+                        Add the markup                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#For-new-main-sections">
+                        For new main sections                      </a>
+                    </li>
+                                                                              <li class='heading level-3'>
+                      <a href="#That-s-it">
+                        That's it!                      </a>
+                    </li>
+                                                                              <li class='heading level-2'>
+                      <a href="#Using-in-production">
+                        Using in production                      </a>
+                    </li>
+                                                                              <li class='heading level-2'>
+                      <a href="#Our-bias">
+                        Our bias                      </a>
+                    </li>
+                                                                              <li class='heading level-2'>
+                      <a href="#Acknowledgements">
+                        Acknowledgements                      </a>
+                    </li>
+                                  </ul>
+                          </li>
+          </ul>
+
+          <ul class='reference'>
+
+            <!-- The reference page -->
+            
+            <!-- Subpages of the ref -->
+                                                                                                                      
+                <li class='page has-children level-1'>
+
+                                                        <span class='a '>Nkss</span>
+                  
+                                                        <ul>
+                                                                                                                    
+                <li class='page  level-2'>
+
+                                                        <a href='app/helpers/styleguide_helper.html' class=''>Helpers</a>
+                  
+                                                    </li>
+                                              </ul>
+                                  </li>
+                                                                                              
+                <li class='page has-children level-1'>
+
+                                                        <span class='a '>Templates</span>
+                  
+                                                        <ul>
+                                                                                                                    
+                <li class='page  level-2'>
+
+                                                        <a href='app/views/layouts/styleguide_page.html.html' class=''>Styleguide page template</a>
+                  
+                                                    </li>
+                                                                                              
+                <li class='page  level-2'>
+
+                                                        <a href='app/views/styleguides/_block.html.html' class=''>Block partial</a>
+                  
+                                                    </li>
+                                                                                              
+                <li class='page  level-2'>
+
+                                                        <a href='app/assets/stylesheets/styleguide.html' class=''>Styleguide CSS</a>
+                  
+                                                    </li>
+                                              </ul>
+                                  </li>
+                          
+          </ul>
+              </div>
+
+      <div class='list files hidden'>
+        
+        <ul>
+                  <li class='level-1'>
+                                                    <button class='item folder '>
+                <i></i>
+                app              </button>
+              <ul class='hidden'>
+                          <li class='level-2'>
+                                                    <button class='item folder '>
+                <i></i>
+                assets              </button>
+              <ul class='hidden'>
+                          <li class='level-3'>
+                                                    <button class='item folder '>
+                <i></i>
+                stylesheets              </button>
+              <ul class='hidden'>
+                          <li class='level-4'>
+                                                    <a href='app/assets/stylesheets/styleguide.html#f' class='item file '>
+                <i></i>
+                styleguide.sass              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-2'>
+                                                    <button class='item folder '>
+                <i></i>
+                helpers              </button>
+              <ul class='hidden'>
+                          <li class='level-3'>
+                                                    <a href='app/helpers/styleguide_helper.html#f' class='item file '>
+                <i></i>
+                styleguide_helper.rb              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-2'>
+                                                    <button class='item folder '>
+                <i></i>
+                views              </button>
+              <ul class='hidden'>
+                          <li class='level-3'>
+                                                    <button class='item folder '>
+                <i></i>
+                layouts              </button>
+              <ul class='hidden'>
+                          <li class='level-4'>
+                                                    <a href='app/views/layouts/styleguide_page.html.html#f' class='item file '>
+                <i></i>
+                styleguide_page.html.haml              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                    <li class='level-3'>
+                                                    <button class='item folder '>
+                <i></i>
+                styleguides              </button>
+              <ul class='hidden'>
+                          <li class='level-4'>
+                                                    <a href='app/views/styleguides/_block.html.html#f' class='item file '>
+                <i></i>
+                _block.html.haml              </a>
+                      </li>
+                                                    <li class='level-4'>
+                                                    <a href='app/views/styleguides/_specimen.html.html#f' class='item file '>
+                <i></i>
+                _specimen.html.haml              </a>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                                        </ul>
+            </li>
+                      </li>
+                                    <li class='level-1'>
+                                                    <a href='index.html#f' class='item file active'>
+                <i></i>
+                README.md              </a>
+                      </li>
+                                  </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src='script.js'></script>
+</body>
+</html>
