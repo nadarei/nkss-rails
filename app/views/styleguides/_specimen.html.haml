@@ -1,5 +1,8 @@
 .sg-specimen
   .sg-drop Ag
-  %h3= lorem.sentence
-  %p= 2.times.map { lorem.paragraph }.join ' '
+  %h3= ('a'..'z').to_a.map { |c| c.upcase + c.downcase }.join(" ")
+  %p.sg-small= lorem.sentence
+  %p
+    %strong= lorem.sentence
+    = 2.times.map { lorem.paragraph }.join ' '
   %p= 2.times.map { lorem.paragraph }.join ' '
