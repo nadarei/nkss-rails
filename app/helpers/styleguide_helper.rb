@@ -69,9 +69,25 @@ module StyleguideHelper
   #
   # This gets you a `<div class='sg-specimen'>` block which has already been
   # styled to showcase different sizes of the given font.
-  #
+
   def kss_specimen
     render partial: 'styleguides/specimen'
+  end
+
+  # ### kss_swatch
+  # Renders a type specimen. This is great for demoing colors.
+  #
+  #     = kss_block '2.1' do
+  #       = kss_swatch 'red', '#ff3322', description: 'for error text'
+
+  def kss_swatch(name, color, options={})
+    render partial: 'styleguide/swatch', locals: {
+      name: name,
+      identifier: name,
+      color: color,
+      dark: options[:dark],
+      description: options[:description]
+    }
   end
 
   # ### lorem

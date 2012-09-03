@@ -97,7 +97,7 @@ body .sg-toc
 
   a:after
     content: ''
-    display: block
+    display: table
     clear: both
 
   a:hover
@@ -283,6 +283,12 @@ body .sg-toc
 
   & > div
     padding: 25px
+    zoom: 1
+
+  & > div:after
+    content: ''
+    clear: both
+    display: table
 
   // Reset the inside elements of the canvas.
   & > div > *
@@ -391,3 +397,64 @@ body .sg-toc
     font-weight: bold
     display: block
     font-size: 1.2em
+
+// ### Color swatches
+
+.sg-swatch
+  &
+    background: white
+    font-size: 8pt
+    line-height: 1.3
+    padding: 3px
+    box-shadow: 0 0 3px rgba(black, 0.2)
+    position: relative
+
+    display: block
+    float: left !important
+    margin: 10px !important
+
+  strong
+    display: block
+    color: #333
+    font-size: 1.1em
+    font-weight: bold
+
+  small
+    display: block
+    border-top: solid 1px rgba(black, 0.05)
+    margin-top: 5px
+    padding-top: 5px
+
+  .sg-text
+    font-weight: bold
+    padding: 2px 5px
+    background: white
+    position: absolute
+    bottom: 0px
+    right: 0px
+    border-top-left-radius: 2px
+
+  .sg-background
+    width: 100px
+    height: 100px
+    padding: 10px
+    box-sizing: border-box
+
+    &
+      color: rgba(black, 0.5)
+      text-shadow: 0 1px 0 rgba(white, 0.2)
+
+  &.sg-dark
+    .sg-background
+      color: rgba(#fff, 0.5)
+      text-shadow: 0 1px 0 rgba(black, 0.2)
+
+    strong
+      color: #fff
+
+    small
+      border-top-color: rgba(white, 0.05)
+
+  &:hover
+    .sg-text
+      color: #222 !important
