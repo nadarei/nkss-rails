@@ -6,6 +6,8 @@ Nadarei KSS
 
 ![Image](https://raw.github.com/nadarei/nkss-rails/misc/sample.jpg)
 
+[See more screenshots here.](https://github.com/nadarei/nkss-rails/tree/misc)
+
 What is KSS?
 ------------
 
