@@ -81,7 +81,7 @@ module StyleguideHelper
   #       = kss_swatch 'red', '#ff3322', description: 'for error text'
 
   def kss_swatch(name, color, options={})
-    render partial: 'styleguide/swatch', locals: {
+    render partial: 'styleguides/swatch', locals: {
       name: name,
       identifier: name,
       color: color,
