@@ -43,7 +43,7 @@ module StyleguideHelper
     classes = [bg, align]
 
     inner_style = ''
-    inner_style = "width: #{options[:width]}px"  if options[:width]
+    inner_style = "width: #{options[:width]}px; margin: 0 auto"  if options[:width]
 
     render \
       partial: 'styleguides/block',
