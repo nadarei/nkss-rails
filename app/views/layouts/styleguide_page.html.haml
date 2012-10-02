@@ -16,7 +16,9 @@
     %ul
       - styleguide_sections.each do |id, name|
         %li
-          %a{class: (id == @section ? 'active' : ''), href: id}
+          - href = @single_page ? "##{id}" : id
+          - klass = @single_page ? "" : (id == @section ? 'active' : '')
+          %a{class: klass, href: href}
             %span.sg-number= "#{id}"
             %span.sg-name= name
 

@@ -1,0 +1,6 @@
+- @sections.each do |id, title|
+  - @section = id.to_i
+  %h2.sg-page-title
+    %strong= id
+    = title
+  = render file: "styleguides/#{@section}"

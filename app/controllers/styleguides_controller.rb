@@ -5,10 +5,9 @@ class StyleguidesController < ApplicationController
   helper_method :styleguide_sections
   helper_method :styleguide_root
 
-  def show
-    require 'kss'
+  before_filter :set_styleguide, :only => [ :show, :all ]
 
-    @styleguide = Kss::Parser.new(styleguide_root)
+  def show
     @section = params[:section].to_i
 
     render template: "styleguides/#{@section}", layout: 'styleguide_page'
@@ -18,7 +17,18 @@ class StyleguidesController < ApplicationController
     redirect_to nkss.root_url + "1"
   end
 
+  def all
+    @sections = styleguide_sections
+    @single_page = true
+    render template: "styleguides/all", layout: 'styleguide_page'
+  end
+
 private
+
+  def set_styleguide
+    require 'kss'
+    @styleguide = Kss::Parser.new(styleguide_root)
+  end
 
   def styleguide_options
     @styleguide_options ||= YAML::load_file("#{Rails.root}/config/styleguides.yml")
