@@ -4,8 +4,9 @@
 -# Don't like me? Just copy me into `app/views/styleguides/_block.html.haml` in
 -# your app.
 
-%section.sg-example
-  %h3= section.section
+%section.sg-example{id: section.section}
+  %h3
+    %a{href: "##{section.section}"}= section.section
 
   %span.sg-filename= section.filename
 
