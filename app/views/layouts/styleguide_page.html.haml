@@ -31,6 +31,7 @@
   %script{src: "http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"}
   %link{href: "http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css", type: "text/css", rel: "stylesheet"}
   :javascript
+    // Pretty printer script
     (function() {
       var pretty = false;
       $('.sg-view-code').on('click', function expand() {
@@ -43,10 +44,92 @@
         $block.find('.sg-html').toggleClass('sg-expanded');
         $block.find('.sg-view-code').toggleClass('sg-expanded');
       });
+    })();
 
+    // Sidebar toggler script
+    (function() {
       $('.sg-toggle-sidebar').on('click', function() {
         $('body').toggleClass('sg-full');
       });
+    })();
+
+    // Scrollspy script
+    (function() {
+      $.fn.scrollagent = function(options, callback) {
+        // Account for $.scrollspy(function)
+        if (typeof callback === 'undefined') {
+          callback = options;
+          options = {};
+        }
+
+        var $sections = $(this);
+        var $parent = options.parent || $(document);
+
+        // Find the top offsets of each section
+        var offsets = [];
+        $sections.each(function(i) {
+          offsets.push({
+            top: $(this).offset().top,
+            id: $(this).attr('id'),
+            index: i,
+            el: this
+          });
+        });
+
+        // State
+        var current = null;
+        var height = null;
+        var range = null;
+
+        // Save the height. Do this only whenever the window is resized so we don't
+        // recalculate often.
+        $(window).on('resize', function onresize() {
+          height = $parent.height();
+          range = $(document).height();
+        });
+
+        // Find the current active section every scroll tick.
+        $parent.on('scroll', function() {
+          var y = $parent.scrollTop();
+          y += height * Math.pow(y/range, 2);
+
+          var latest = null;
+
+          for (var i in offsets) {
+            if (offsets.hasOwnProperty(i)) {
+              var offset = offsets[i];
+              if (offset.top < y) latest = offset;
+            }
+          }
+
+          if (latest && (!current || (latest.index !== current.index))) {
+            callback.call($sections,
+              latest ? latest.id : null,
+              current ? current.id : null,
+              latest ? latest.el : null,
+              current ? current.el : null);
+            current = latest;
+          }
+        });
+
+        $(window).trigger('resize');
+        $parent.trigger('scroll');
+
+        return this;
+      };
+
+      var $sections = $('.sg-page-title');
+
+      $sections.scrollagent(function(cid, pid) {
+        console.log("switch", cid, pid);
+        if (pid) {
+          $(".sg-toc [href='#"+pid+"']").removeClass('active');
+        }
+        if (cid) {
+          $(".sg-toc [href='#"+cid+"']").addClass('active');
+        }
+      });
+
     })();
 
 - content_for :head do
