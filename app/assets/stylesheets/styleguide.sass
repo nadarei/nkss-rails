@@ -47,16 +47,31 @@ html, body
 // ### Layout
 
 .sg-body
-  margin-right: 180px + $pad
+  margin-left: 180px + $pad
   padding-bottom: 20px
 
 body .sg-toc
   font-family: $sans
   font-size: 10pt
   width: 180px
-  position: absolute
-  top: $pad
-  right: $pad
+  position: fixed
+  padding: ($pad - 10px) 20px $pad $pad
+  top: 10px
+  left: 0
+  bottom: 0
+
+  overflow-y: auto
+
+  &::-webkit-scrollbar
+    width: 10px
+    height: 10px
+
+  &::-webkit-scrollbar-thumb
+    background: rgba(0, 0, 0, 0.0)
+    border-radius: 5px
+
+  &:hover::-webkit-scrollbar-thumb
+    background: rgba(0, 0, 0, 0.2)
 
 // ----------------------------------------------------------------------------
 
@@ -77,9 +92,10 @@ body.sg-full
   background: rgba(black, 0.0)
 
   position: fixed
-  right: 0
+  left: 0
   top: 0
   bottom: 0
+  z-index: 10
 
   line-height: 100%
 
@@ -511,8 +527,8 @@ body.sg-full
   font-weight: bold
   color: #999
 
-  margin: 13px 0 50px -10px
-  padding: 0 0 20px 60px
+  margin: 0 0 50px -10px
+  padding: 13px 0 20px 60px
   border-bottom: solid 1px #eee
 
   font-family: $sans
