@@ -29,10 +29,19 @@
   %script{src: "http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"}
   %link{href: "http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css", type: "text/css", rel: "stylesheet"}
   :javascript
-    $(function() { prettyPrint(); });
-    $('.sg-expand').on('click', function expand() {
-      $(this).closest('.sg-html').toggleClass('expanded');
-    });
+    (function() {
+      var pretty = false;
+      $('.sg-view-code').on('click', function expand() {
+        if (!pretty) {
+          prettyPrint();
+          pretty = true;
+        }
+
+        var $block = $(this).closest('.sg-example');
+        $block.find('.sg-html').toggleClass('sg-expanded');
+        $block.find('.sg-view-code').toggleClass('sg-expanded');
+      });
+    })();
 
 - content_for :head do
   = stylesheet_link_tag 'styleguide'

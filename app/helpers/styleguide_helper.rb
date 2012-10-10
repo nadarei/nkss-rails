@@ -13,8 +13,6 @@ module StyleguideHelper
   #
   #  * `align` - Text alignment. Can be *left*, *right*, or *center*.
   #
-  #  * `code` - (Boolean) shows the code if *true*, hides if *false*. Defaults to *true*.
-  #
   #  * `width` - (Optional) width for the inner area. Specify this for
   #  documenting long things.
   #
@@ -51,7 +49,6 @@ module StyleguideHelper
         canvas_class: classes.join(' '),
         code_block: block,
         html: example_html,
-        show_code: options[:code],
         section: section,
         modifiers: (section.modifiers rescue Array.new),
         options: options,

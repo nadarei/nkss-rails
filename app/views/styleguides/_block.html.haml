@@ -9,6 +9,7 @@
     %a{href: "##{section.section}"}= section.section
 
   %span.sg-filename= section.filename
+  %button.sg-button.sg-view-code Source
 
   .sg-description
     != markdown h(section.description)
@@ -29,8 +30,6 @@
       %span.sg-modifier-name= modifier.name
       %div{style: inner_style}= capture modifier.name, &code_block
 
-  - if show_code
-    .sg-html
-      %button.sg-expand +
-      %pre.prettyprint.lang-html!= h(html.gsub('', ''))
+  .sg-html
+    %pre.prettyprint.lang-html!= h(html.gsub('', ''))
 

@@ -135,6 +135,14 @@ body .sg-toc
   margin-left: 60px
   position: relative
 
+  // View code button
+  .sg-button
+    position: absolute
+    right: 10px
+    bottom: 10px
+    z-index: 10
+
+  // Filename badge
   .sg-filename
     @extend .sg-badge
 
@@ -143,6 +151,7 @@ body .sg-toc
     background: #fff
     line-height: 1.5
     font-family: $sans
+    position: relative
 
     code
       @include code
@@ -218,41 +227,16 @@ body .sg-toc
       font-weight: bold
 
 .sg-html
+  &
+    display: none
+  &.sg-expanded
+    display: block
+
   border-top: solid 1px #ccc
   position: relative
 
   background: $bluish
   box-shadow: inset 0 5px 4px -4px rgba(0, 0, 0, 0.1)
-
-  .sg-expand
-    border: 0
-    padding: 0
-    margin: 0
-
-    position: absolute
-    top: 0px
-    left: -51px
-    bottom: 0px
-
-    line-height: 100%
-    width: 50px
-    text-align: center
-
-    background: $bluish * 0.9
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset -6px 0 4px -4px rgba(0, 0, 0, 0.1)
-
-    border-top-left-radius: 4px
-    border-bottom-left-radius: 4px
-
-    color: $bluish * 0.7
-    text-shadow: 0 1px 0 rgba(white, 0.7)
-    font-size: 16pt
-    font-weight: bold
-    font-family: $sans
-    padding: 0
-
-    &:hover
-      background: $bluish * 0.92
 
   pre
     padding: 20px !important
@@ -262,7 +246,6 @@ body .sg-toc
     text-shadow: 0 1px 0 rgba(white, 0.6)
     font-size: 8pt
     font-family: $mono
-    max-height: 60px
 
     overflow-y: scroll
 
@@ -342,21 +325,6 @@ body .sg-toc
     padding: 3px 15px
 
 // ----------------------------------------------------------------------------
-
-// Hide
-.sg-example .sg-expand
-  opacity: 0
-  transition: opacity 300ms linear
-  -moz-transition: opacity 300ms linear
-  -webkit-transition: opacity 300ms linear
-.sg-example:hover .sg-expand
-  opacity: 1
-  transition: none
-  -moz-transition: none
-  -webkit-transition: none
-
-.sg-html.expanded pre
-  max-height: 400px
 
 // Scroll
 .sg-html pre
@@ -494,3 +462,50 @@ body .sg-toc
     margin-left: -40px
 
     font-weight: 200
+
+// ----------------------------------------------------------------------------
+
+.sg-button
+  margin: 0
+  padding: 0
+  border: 0
+  display: inline-block
+
+  background: #f0fafa
+  border-radius: 4px
+  box-shadow: inset 0 0 0 1px rgba(black, 0.1), inset 0 2px 0 rgba(white, 0.2)
+
+  height: 24px
+  line-height: 24px
+  padding: 0 15px
+
+  font-size: 9pt
+  font-weight: bold
+  font-family: $sans
+
+  color: #555
+  text-shadow: 0 1px 0 rgba(white, 0.9)
+
+  &:hover
+    background: #f0fafa
+    color: #509090
+  // Glyph
+  &:after
+    content: '\25bc'
+    margin-left: 6px
+    font-size: 0.6em
+    color: #a0afaf
+
+  &.sg-expanded
+    background: #f0fafa * 0.95
+
+  &.sg-expanded:after
+    content: '\25b2'
+
+  // Clickity
+  &:active
+    background: #509090
+    color: #eee
+    text-shadow: 0 1px 0 rgba(black, 0.3)
+    box-shadow: inset 0 0 0 1px rgba(black, 0.1)
+
