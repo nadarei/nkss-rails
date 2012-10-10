@@ -53,6 +53,9 @@
       });
     })();
 
+    (function() {
+    });
+
     // Scrollspy script
     (function() {
       $.fn.scrollagent = function(options, callback) {
@@ -91,7 +94,7 @@
         // Find the current active section every scroll tick.
         $parent.on('scroll', function() {
           var y = $parent.scrollTop();
-          y += height * Math.pow(y/range, 2);
+          y += height * (0.3 + 0.7 * Math.pow(y/range, 2));
 
           var latest = null;
 
@@ -121,7 +124,6 @@
       var $sections = $('.sg-page-title');
 
       $sections.scrollagent(function(cid, pid) {
-        console.log("switch", cid, pid);
         if (pid) {
           $(".sg-toc [href='#"+pid+"']").removeClass('active');
         }
