@@ -8,10 +8,10 @@
   %h3
     %a{href: "##{section.section}"}= section.section
 
-  %span.sg-filename= section.filename
-  %button.sg-button.sg-view-code Source
+  %button.sg-button.sg-view-code HTML
 
   .sg-description
+    %span.sg-filename= section.filename
     != markdown h(section.description)
 
     - if section.modifiers.any?
@@ -22,14 +22,15 @@
             = "-"
             = modifier.description
 
-  .sg-canvas{class: canvas_class}
-    %div{style: inner_style}!= html
+  .sg-canvases
+    .sg-canvas{class: canvas_class}
+      %div{style: inner_style}!= html
 
-  - modifiers.each do |modifier|
-    .sg-modifier.sg-canvas{class: canvas_class}
-      %span.sg-modifier-name= modifier.name
-      %div{style: inner_style}= capture modifier.name, &code_block
+    - modifiers.each do |modifier|
+      .sg-modifier.sg-canvas{class: canvas_class}
+        %span.sg-modifier-name= modifier.name
+        %div{style: inner_style}= capture modifier.name, &code_block
 
-  .sg-html
-    %pre.prettyprint.lang-html!= h(html.gsub('', ''))
+    .sg-html
+      %pre.prettyprint.lang-html!= h(html.gsub('', ''))
 
