@@ -56,6 +56,53 @@ body .sg-toc
   top: $pad
   left: $pad
 
+// ----------------------------------------------------------------------------
+
+// ### Full layout
+
+body.sg-full
+  .sg-toc
+    display: none
+  .sg-body
+    margin-left: 0
+
+// Sidebar toggle button
+.sg-toggle-sidebar
+  margin: 0
+  padding: 0
+  border: 0
+  background: rgba(black, 0.0)
+
+  position: fixed
+  left: 0
+  top: 0
+  bottom: 0
+
+  line-height: 100%
+
+  width: 20px
+
+  cursor: pointer
+
+  color: #aaa
+  text-shadow: 0 1px 0 rgba(white, 0.8)
+  font-size: 8pt
+  font-family: $sans
+  text-align: center
+
+  &:before
+    content: '\25c0'
+    display: none
+
+  &:hover
+    background: rgba(black, 0.1)
+    border-right: solid 1px rgba(black, 0.03)
+
+    &:before
+      display: block
+
+// ----------------------------------------------------------------------------
+
 // ### Contents
 
 .sg-toc
@@ -485,6 +532,8 @@ body .sg-toc
 
   color: #555
   text-shadow: 0 1px 0 rgba(white, 0.9)
+
+  cursor: pointer
 
   &:hover
     background: #f0fafa

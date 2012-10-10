@@ -8,6 +8,8 @@
 -# `app/views/layouts/styleguide_page.html.haml` and customize me.
 
 - content_for :body do
+  %button.sg-toggle-sidebar
+
   %aside.sg-toc
     %h1
       %strong= styleguide_title
@@ -40,6 +42,10 @@
         var $block = $(this).closest('.sg-example');
         $block.find('.sg-html').toggleClass('sg-expanded');
         $block.find('.sg-view-code').toggleClass('sg-expanded');
+      });
+
+      $('.sg-toggle-sidebar').on('click', function() {
+        $('body').toggleClass('sg-full');
       });
     })();
 
