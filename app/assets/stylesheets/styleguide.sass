@@ -12,6 +12,11 @@ html, body
   margin: 0
   padding: 0
 
+.bb_logo
+  position: absolute
+  width: 53px
+  top: 60px
+
 @mixin code
   background: #eee
   padding: 4px 4px
@@ -174,7 +179,7 @@ body.sg-full
 
   a.active
     font-weight: bold
-    color: #222
+    color: #f90
 
   .sg-number
     float: left
@@ -229,8 +234,9 @@ body.sg-full
     color: #ddd
     text-align: center
     font-weight: 200
-    font-size: 11pt
+    font-size: 14pt
     font-family: $sans
+    text-decoration: none
 
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05)
 
@@ -327,9 +333,16 @@ body.sg-full
     overflow: hidden
     overflow-x: auto
     border: solid 1px #ccc
+    font-family: $sans
 
     position: relative
     z-index: 0
+  h1, h2, h3, h4, h5, h6, p, i , em
+    margin: 0
+  *
+    box-sizing: border-box
+    -moz-box-sizing: border-box
+
 
   // Collapse
   & + .sg-canvas
@@ -358,13 +371,7 @@ body.sg-full
 
   // Reset the inside elements of the canvas.
   & > div > *
-    margin: 0 auto !important
-    float: none !important
     position: relative !important
-    bottom: inherit
-    right: inherit
-    left: inherit
-    top: inherit
 
   &.align-center > div
     text-align: center

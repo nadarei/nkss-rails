@@ -11,6 +11,7 @@
   %button.sg-toggle-sidebar
 
   %aside.sg-toc
+    = image_tag "bb_logo_200x200.png", class: "bb_logo"
     %h1
       %strong= styleguide_title
       %small Style guide
@@ -136,6 +137,5 @@
 
 - content_for :head do
   = stylesheet_link_tag 'styleguide'
-  = stylesheet_link_tag 'styleguide-extras'
 
 = render file: 'layouts/styleguide'
