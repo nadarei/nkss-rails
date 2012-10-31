@@ -19,6 +19,7 @@ class StyleguidesController < ApplicationController
 
   def all
     @sections = styleguide_sections
+    @sub = styleguide_sub
     @single_page = true
     render template: "styleguides/all", layout: 'styleguide_page'
   end
@@ -40,6 +41,10 @@ private
 
   def styleguide_sections
     styleguide_options['sections']
+  end
+
+  def styleguide_sub
+    styleguide_options['sub']
   end
 
   def styleguide_root
