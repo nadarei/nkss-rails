@@ -1,4 +1,4 @@
-class StyleguidesController < ApplicationController
+class StyleguidesController < Admin::Base
   before_filter :requires_staff!
   helper_method :styleguide_options
   helper_method :styleguide_title
