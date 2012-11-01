@@ -1,5 +1,5 @@
 class StyleguidesController < ApplicationController
-
+  http_basic_authenticate_with :name => "styleguide", :password => "bbstyle14"
   helper_method :styleguide_options
   helper_method :styleguide_title
   helper_method :styleguide_sections
