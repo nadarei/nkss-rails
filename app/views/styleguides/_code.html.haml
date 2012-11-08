@@ -1,0 +1,15 @@
+-# # Templates: Block partial
+
+-# This is the partial invoked when you use the `kss_guide` helper.
+-# Don't like me? Just copy me into `app/views/styleguides/_block.html.haml` in
+-# your app.
+
+%section.sg-example
+  %h3
+    %a{href: "##{section}"}= section
+  .sg-description
+    %span.sg-filename
+      = options[:filename]
+    = @description
+
+  = rest

@@ -3,6 +3,19 @@
 
 module StyleguideHelper
 
+  class JSFile
+    attr_accessor :path, :name, :exists
+    def initialize(name)
+      if name.present?
+        @path = "/app/assets/javascripts/#{name}"
+        @name = name.split('/').last
+        @exists = true
+      else
+        @exists = false
+      end
+    end
+  end
+
   # ### kss_block
   # Documents a styleguide block.
   #
@@ -54,6 +67,40 @@ module StyleguideHelper
         options: options,
         inner_style: inner_style,
       }
+  end
+
+  def describe(&block)
+    @description = capture(@file, &block)
+      if @file.exists
+        desc = link_to(  "plain: #{@file.name}", "plain_file:#{@file.path}")
+        desc << link_to( "compiled: #{@file.path}", "compiled_file:#{@file.path}")
+      else
+        desc = ""
+      end
+    @description << content_tag(:div, desc, class: 'sg-file-description')
+  end
+
+  def code(file = nil, &block)
+    if file.present?
+      @code = File.read(File.join Rails.root, "#{file}")
+    else
+      @code = capture(&block)
+    end
+    @code = content_tag(:div, ::Pygments.highlight(@code, lexer: @lexer, linenos: 'table').html_safe, class: 'sg-canvas bg-clear')
+    content_tag(:div, @code, class: 'sg-canvases')
+  end
+
+  def text(&block)
+    @code = capture(&block)
+    @code = content_tag(:div, @code, class: 'sg-description')
+  end
+
+  def kss_code(section_id, options={}, &block)
+    @file = JSFile.new(options[:filename])
+    @description = content_tag :h1, options[:filename]
+    require "pygments"
+    @lexer = options.fetch(:lexer, 'coffeescript')
+    render partial: 'styleguides/code', locals: {section: section_id, options: options, rest: capture(@file, &block)}
   end
 
   # ### kss_specimen

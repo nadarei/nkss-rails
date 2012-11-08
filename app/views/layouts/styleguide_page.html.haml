@@ -7,22 +7,34 @@
 -# Don't like me? Just copy me into your
 -# `app/views/layouts/styleguide_page.html.haml` and customize me.
 
+- list = lambda do |sections, higher_level_id, title|
+  %ul
+    - sections.each do |id, name|
+      %li
+        - href = @single_page ? "##{id}" : "#{id} #{title} #{name}".parameterize
+        - klass = @single_page ? "" : (id == @section ? 'active' : '')
+        %a{class: klass, href: href}
+          %span.sg-number= "#{id}"
+          %span.sg-name= name
+
 - content_for :body do
   %button.sg-toggle-sidebar
 
   %aside.sg-toc
+    = image_tag "bb_logo_200x200.png", class: "bb_logo"
     %h1
       %strong= styleguide_title
       %small Style guide
-
-    %ul
-      - styleguide_sections.each do |id, name|
-        %li
-          - href = @single_page ? "##{id}" : id
-          - klass = @single_page ? "" : (id == @section ? 'active' : '')
-          %a{class: klass, href: href}
-            %span.sg-number= "#{id}"
-            %span.sg-name= name
+    - if styleguide_options['nested_sections'] == true
+      - styleguide_sections.each do |id, sections|
+        - title = sections.delete('title')
+        .nested
+          %h1
+            %small
+              ="#{title}"
+          - list.call(sections, nil, title)
+    - else
+      - list.call(styleguide_sections, nil, nil)
 
   %section.sg-body
     = yield
@@ -137,5 +149,6 @@
 - content_for :head do
   = stylesheet_link_tag 'styleguide'
   = stylesheet_link_tag 'styleguide-extras'
+  = stylesheet_link_tag 'native'
 
 = render file: 'layouts/styleguide'

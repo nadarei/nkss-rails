@@ -23,4 +23,5 @@ projects so you can instantly have cute docs."
   s.add_dependency "ffaker"
   s.add_dependency "BlueCloth"
   s.add_dependency "haml"
+  s.add_dependency "pygments.rb"
 end
