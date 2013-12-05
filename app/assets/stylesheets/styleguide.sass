@@ -8,6 +8,13 @@ $mono: 'Menlo', 'Monaco', 'Lucida Console', monospace
 $sans: 'Helvetica Neue', sans-serif
 $bluish: #f0f7fb
 
+= box-sizing($val)
+  -webkit-box-sizing: $val
+  -moz-box-sizing: $val
+  -ms-box-sizing: $val
+  -o-box-sizing: $val
+  box-sizing: $val
+
 html, body
   margin: 0
   padding: 0
@@ -51,6 +58,7 @@ html, body
   padding-bottom: 20px
 
 body .sg-toc
+  +box-sizing(content-box)
   font-family: $sans
   font-size: 10pt
   width: 180px
@@ -156,6 +164,7 @@ body.sg-full
   a
     display: block
     padding: 7px 0
+    +box-sizing(content-box)
 
     height: 24px
     line-height: 24px
@@ -501,7 +510,7 @@ body.sg-full
     width: 100px
     height: 100px
     padding: 10px
-    box-sizing: border-box
+    +box-sizing(border-box)
 
     &
       color: rgba(black, 0.5)
