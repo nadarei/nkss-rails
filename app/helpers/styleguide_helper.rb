@@ -102,12 +102,22 @@ module StyleguideHelper
     Faker::Lorem
   end
 
-  # ### markdown
+  # ### kss_markdown
   # Markdownify some text.
 
-  def markdown(text)
-    require 'bluecloth'
+  def kss_markdown(text)
+    lines = text.split("\n")
 
+    # Transform the first line
+    if lines.length > 0
+      lines[0].gsub!(/^#*\s*/, '## ')         # "Hello" => "## Hello"
+      lines[0].gsub!(/\((.*?)\):?$/, '`\1`')  # "Hey (code):" => "Hey `code`"
+    end
+
+    text = lines.join("\n")
+
+    # Markdownify
+    require 'bluecloth'
     str = BlueCloth.new(text).to_html
     str = str.html_safe  if str.respond_to?(:html_safe)
     str

@@ -12,7 +12,7 @@
 
   .sg-description
     %span.sg-filename= section.filename
-    != markdown h(section.description)
+    != kss_markdown(h(section.description)).html_safe
 
     - if section.modifiers.any?
       %ul.sg-modifiers
