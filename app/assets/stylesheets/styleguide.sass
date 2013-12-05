@@ -1,12 +1,13 @@
 // # Templates: Styleguide CSS
 // This is the CSS stylesheet for the styleguide pages.
 
-$pad: 50px
+$pad: 30px
 $checkerboard: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAF0lEQVQI12P4BAI/QICBFCaYBPNJYQIAkUZftTbC4sIAAAAASUVORK5CYII="
 $dark-checkerboard: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAFklEQVQI12NQBQF2EGAghQkmwXxSmADZJQiZ2ZZ46gAAAABJRU5ErkJggg=="
 $mono: 'Menlo', 'Monaco', 'Lucida Console', monospace
 $sans: 'Helvetica Neue', sans-serif
 $bluish: #f0f7fb
+$blue: #3ad
 
 = box-sizing($val)
   -webkit-box-sizing: $val
@@ -44,9 +45,12 @@ html, body
   font-family: $sans
 
 body
-  padding: $pad !important
+  padding: 50px !important
   background: #fcfcfc !important
   border-top: solid 6px #222 !important
+
+  @media (max-width: 480px) /* Mobile */
+    padding: 10px !important
 
 html, body
   overflow: inherit !important
@@ -63,9 +67,9 @@ body .sg-toc
   font-size: 10pt
   width: 180px
   position: fixed
-  padding: ($pad - 10px) 20px $pad $pad
-  top: 10px
-  left: 0
+  padding: 0 20px $pad $pad
+  top: 50px
+  left: 10px
   bottom: 0
   z-index: 10
 
@@ -206,7 +210,6 @@ body.sg-full
 // ### An example block
 
 .sg-example
-  margin-left: 60px
   position: relative
 
   // View code button
@@ -234,26 +237,28 @@ body.sg-full
       @include code
 
   > h3 a, > h3 a:visited
-    background: #222
-    color: #ddd
+    background: transparent
+    color: #aaa
     text-align: center
     font-weight: 200
     font-size: 11pt
     font-family: $sans
 
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05)
+    border: solid 1px #ddd
+    +box-sizing(border-box)
 
     display: block
     width: 50px
     height: 50px
-    line-height: 50px
+    line-height: 48px
 
-    float: left
-    margin-left: -70px
+    float: right
+    margin-left: 20px
     border-radius: 25px
 
   > h3 a:hover
-    background: #444
+    color: $blue
+    border-color: $blue
 
   .sg-description
     padding: 5px 0 25px 0
@@ -273,7 +278,7 @@ body.sg-full
 
       code
         font-size: 0.9em
-        color: #8080b0
+        color: $blue
         font-weight: normal
         margin-left: 7px
         padding: 0
@@ -286,6 +291,7 @@ body.sg-full
         &:before
           content: '\203a'
           margin-right: 10px
+          color: #ddd
 
   ul.sg-modifiers
     &
@@ -537,7 +543,7 @@ body.sg-full
   font-weight: bold
   color: #999
 
-  margin: 0 0 50px -10px
+  margin: 0 0 30px 0
   padding: 13px 0 20px 0
   border-bottom: solid 1px #eee
 
@@ -557,6 +563,7 @@ body.sg-full
     float: right
 
     font-weight: 700
+    font-size: 0.5em
 
 // ----------------------------------------------------------------------------
 
