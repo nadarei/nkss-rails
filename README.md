@@ -30,13 +30,17 @@ Installation
 
 Add me, and `haml`, to your `Gemfile`.
 
-    gem 'haml'
-    gem 'nkss-rails', github: 'nadarei/nkss-rails'
+~~~ ruby
+gem 'haml'
+gem 'nkss-rails', github: 'nadarei/nkss-rails'
+~~~
 
 Then type `bundle` to update your bundle. Then, install the needed files into
 your project:
 
-    $ bundle exec rails generate nkss:install
+~~~ shell
+$ bundle exec rails g nkss:install
+~~~
 
 Now move on to the next section.
 
@@ -44,28 +48,24 @@ Now move on to the next section.
 
 This gives you the following things that you should customize:
 
-#### `config/styleguides.yml`
+* __config/styleguides.yml__  
+A list of sections in your styleguide. Your
+mission: edit this file to add your own sections.
 
- A list of sections in your styleguide. Your
- mission: edit this file to add your own sections.
+* __app/views/styleguides/__  
+Your styleguides live here. Your mission:
+edit the first styleguide (*1.html.haml*) and later, add your own.
 
-#### `app/views/styleguides/`
+* __app/views/layouts/styleguide.html.haml__  
+The layout for your styleguide. Your mission: make sure that this loads the
+right styles and scripts that your
+application uses.
 
- Your styleguides live here. Your mission:
- edit the first styleguide (*1.html.haml*) and later, add your own.
+* __app/assets/stylesheets/styleguide-extras.css__ (optional)  
+Place any extra CSS definitions in here.
 
-#### `app/views/layouts/styleguide.html.haml`
-
- The layout for your styleguide. Your mission: make sure that this loads the
- right styles and scripts that your
- application uses.
-
-#### `app/assets/stylesheets/styleguide-extras.css`
-
- Place any extra CSS definitions in here.
-
-#### `app/assets/stylesheets/example-for-styleguides.css`
- An example of a documented KSS block. Study it, then delete it.
+* __app/assets/stylesheets/example-for-styleguides.css__ (optional)  
+An example of a documented KSS block. Study it, then delete it.
 
 ### Viewing your sheets
 
@@ -94,14 +94,21 @@ In your CSS file, add a KSS document block. In this example, we'll define
 section `1.3`. Refer to the [KSS Syntax](http://warpspire.com/kss/syntax/) page 
 for more info.
 
-    /*
-    A button for doing things.
-    
-    Styleguide 1.3.
-    */
-    .button {
-      color: red
-    }
+~~~ css
+/*
+ * Buttons (.button):
+ * A button for doing things.
+ *
+ * Styleguide 1.3.
+ */
+
+.button {
+  color: red
+}
+~~~
+
+The format for the first line is `name (code):`, where `name` describes the 
+section you want to document, and `code` describes the CSS selector of it.
 
 ### Add the markup
 
@@ -109,22 +116,26 @@ Add the markup in the corresponding section in
 `app/views/styleguides/N.html.haml`, where `N` is the main section number. In
 this case, we'll be editing `1.html.haml`.
 
-    -# 1.html.haml
-    = kss_block '1.3' do
-      %a.button{href: '#'} Do things
+~~~ haml
+-# 1.html.haml
+= kss_block '1.3' do
+  %a.button{href: '#'} Do things
+~~~
 
 ### For new main sections
 
 If you're adding a new main section, edit the file `config/styleguides.yml` to
 add it to the menu.
 
-    # config/styleguides.yml
-    title: My Site
-    sections:
-      1: Buttons
-      2: Forms
-      3: Ratings
-      4: ...
+~~~ yml
+# config/styleguides.yml
+title: My Site
+sections:
+  1: Buttons
+  2: Forms
+  3: Ratings
+  4: ...
+~~~
 
 ### That's it!
 
