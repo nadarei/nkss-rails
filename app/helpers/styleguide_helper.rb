@@ -106,6 +106,7 @@ module StyleguideHelper
   # Markdownify some text.
 
   def kss_markdown(text)
+    text.gsub!(/^\s*\-*=*\s*\n*/, '') # Strip '----' lines
     lines = text.split("\n")
 
     # Transform the first line
