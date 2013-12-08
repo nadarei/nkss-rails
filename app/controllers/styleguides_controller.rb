@@ -1,4 +1,5 @@
 class StyleguidesController < ApplicationController
+  skip_load_and_authorize_resource
 
   helper_method :styleguide_options
   helper_method :styleguide_title
