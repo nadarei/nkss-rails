@@ -1,5 +1,7 @@
 class StyleguidesController < ApplicationController
 
+  helper :styleguide
+
   helper_method :styleguide_options
   helper_method :styleguide_title
   helper_method :styleguide_sections
