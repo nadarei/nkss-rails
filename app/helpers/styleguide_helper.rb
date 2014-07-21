@@ -33,7 +33,7 @@ module StyleguideHelper
 
     example_html = capture(&block)
 
-    defaults = { background: 'light', align: 'left', code: 'true' }
+    defaults = { background: 'clear', align: 'left', code: 'true' }
     options = defaults.merge(options)
 
     bg = "bg-#{options[:background]}"
